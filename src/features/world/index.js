@@ -1,10 +1,20 @@
+/*
+
+Usage
+<World />
+
+World component - contains the game map and the player
+
+*/
+
 import React from 'react'
 import Map from '../map'
 import Player from '../player'
 
 function World(props) {
     return (
-        <div
+
+        <div // Define world position and boundaries
             style={{
                 position: 'relative',
                 width: '800px',
@@ -12,9 +22,12 @@ function World(props) {
                 margin: '20px auto',
             }}
         >
+            {/* Drop game map and player component in world */}
             <Map />
             <Player />
+
         </div>
+
     )
 }
 

@@ -1,3 +1,12 @@
+/*
+
+Usage
+<Map />
+
+Game map component - displays the map for the game
+
+*/
+
 import React from 'react'
 
 function Map(props) {
