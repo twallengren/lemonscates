@@ -8,6 +8,7 @@ Game map component - displays the map for the game
 */
 
 import React from 'react'
+import { connect } from 'react-redux'
 import { constants } from '../../config/constants'
 
 import './styles.css'
@@ -33,7 +34,16 @@ function MapTile(props) {
 }
 
 function MapRow(props) {
-    return props.tiles.map(tile => <MapTile tile={tile} />)
+    return <div
+        className="row"
+        style={{
+            height: constants.SPRITE_SIZE,
+        }}
+    >
+        {
+            props.tiles.map(tile => <MapTile tile={tile} />)
+        }
+    </div>
 }
 
 function Map(props) {
@@ -55,4 +65,10 @@ function Map(props) {
     )
 }
 
-export default Map
+function mapStateToProps(state) {
+    return {
+        tiles: state.map.tiles
+    }
+}
+
+export default connect(mapStateToProps)(Map)
