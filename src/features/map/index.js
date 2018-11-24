@@ -17,6 +17,10 @@ function getTileSprite(type) {
     switch (type) {
         case 0:
             return 'grass'
+        case 3:
+            return 'tree'
+        case 4:
+            return 'chest'
         case 5:
             return 'rock'
         case 6:
@@ -53,8 +57,8 @@ function Map(props) {
                 position: 'relative',
                 top: '0px',
                 left: '0px',
-                width: '800px',
-                height: '400px',
+                width: `${constants.SPRITE_SIZE * props.tiles[0].length}px`,
+                height: `${constants.SPRITE_SIZE * props.tiles.length}px`,
                 border: '4px solid white',
             }}
         >

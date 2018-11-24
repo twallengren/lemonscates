@@ -11,6 +11,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import walkSprite from './player_walk.png'
 import handleMovement from './movement'
+import { constants } from '../../config/constants'
 
 function Player(props) {
     return (
@@ -22,9 +23,9 @@ function Player(props) {
                 top: props.position[1],
                 left: props.position[0],
                 backgroundImage: `url('${walkSprite}')`,
-                backgroundPosition: '0 0',
-                width: '40px',
-                height: '40px',
+                backgroundPosition: props.spriteLocation,
+                width: `${constants.SPRITE_SIZE}px`,
+                height: `${constants.SPRITE_SIZE}px`,
             }}
         />
 
