@@ -25,6 +25,8 @@ function getTileSprite(type) {
             return 'rock'
         case 6:
             return 'tree'
+        default:
+            return 'grass'
     }
 }
 

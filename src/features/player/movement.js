@@ -23,6 +23,8 @@ export default function handleMovement(player) {
                 return [oldPos[0], oldPos[1] - constants.SPRITE_SIZE]
             case constants.SOUTH:
                 return [oldPos[0], oldPos[1] + constants.SPRITE_SIZE]
+            default:
+                return [oldPos[0], oldPos[1]]
         }
     }
 
@@ -36,6 +38,8 @@ export default function handleMovement(player) {
                 return `${constants.SPRITE_SIZE * walkIndex}px ${constants.SPRITE_SIZE * 2}px`
             case constants.NORTH:
                 return `${constants.SPRITE_SIZE * walkIndex}px ${constants.SPRITE_SIZE * 3}px`
+            default:
+                return `${constants.SPRITE_SIZE * walkIndex}px ${constants.SPRITE_SIZE * 0}px`
         }
     }
 
