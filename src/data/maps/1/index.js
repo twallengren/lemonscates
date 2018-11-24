@@ -1,5 +1,9 @@
 // map values
 // grass: 0
+// passable-tree: 3
+// treasure-chest: 4
+// rock: 5
+// tree: 6
 
 export const tiles = [
     [0, 5, 5, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
