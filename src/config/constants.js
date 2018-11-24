@@ -2,9 +2,7 @@ const SPRITE_SIZE = 40
 
 export const constants = {
 
-    SPRITE_SIZE: SPRITE_SIZE, //px
-    MAP_HEIGHT: SPRITE_SIZE * 10,
-    MAP_WIDTH: SPRITE_SIZE * 20,
+    SPRITE_SIZE,
     NORTH: 'NORTH',
     SOUTH: 'SOUTH',
     EAST: 'EAST',

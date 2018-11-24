@@ -44,12 +44,13 @@ export default function handleMovement(player) {
         return walkIndex >= 7 ? 0 : walkIndex + 1
     }
 
-    function observeBoundaries(newPos) {
-        return (newPos[0] >= 0 && newPos[0] <= constants.MAP_WIDTH - constants.SPRITE_SIZE) && (newPos[1] >= 0 && newPos[1] <= constants.MAP_HEIGHT - constants.SPRITE_SIZE)
+    function observeBoundaries(newPos, tiles) {
+        const MAP_HEIGHT = constants.SPRITE_SIZE * tiles.length
+        const MAP_WIDTH = constants.SPRITE_SIZE * tiles[0].length
+        return (newPos[0] >= 0 && newPos[0] <= MAP_WIDTH - constants.SPRITE_SIZE) && (newPos[1] >= 0 && newPos[1] <= MAP_HEIGHT - constants.SPRITE_SIZE)
     }
 
-    function observeObstruction(newPos) {
-        const tiles = store.getState().map.tiles
+    function observeObstruction(newPos, tiles) {
         const y = newPos[1] / constants.SPRITE_SIZE
         const x = newPos[0] / constants.SPRITE_SIZE
         const nextTile = tiles[y][x]
@@ -73,8 +74,9 @@ export default function handleMovement(player) {
 
         const oldPos = store.getState().player.position
         const newPos = getNewPosition(oldPos, direction)
+        const tiles = store.getState().map.tiles
 
-        if (observeBoundaries(newPos) && observeObstruction(newPos)) {
+        if (observeBoundaries(newPos, tiles) && observeObstruction(newPos, tiles)) {
             dispatchMove(direction, newPos)
         }
 
