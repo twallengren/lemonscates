@@ -61,13 +61,12 @@ export default function handleMovement(player) {
         return nextTile < 5
     }
 
-    function dispatchMove(direction, newPos) {
-        const walkIndex = getWalkIndex()
+    function dispatchMove(direction, newPos, walkIndex) {
+
         store.dispatch({
             type: constants.MOVE_PLAYER,
             payload: {
                 position: newPos,
-                direction,
                 walkIndex,
                 spriteLocation: getSpriteLocation(direction, walkIndex)
             }
@@ -79,9 +78,12 @@ export default function handleMovement(player) {
         const oldPos = store.getState().player.position
         const newPos = getNewPosition(oldPos, direction)
         const tiles = store.getState().map.tiles
+        const walkIndex = getWalkIndex()
 
         if (observeBoundaries(newPos, tiles) && observeObstruction(newPos, tiles)) {
-            dispatchMove(direction, newPos)
+            dispatchMove(direction, newPos, walkIndex)
+        } else {
+            dispatchMove(direction, oldPos, walkIndex - 1 < 0 ? 7 : walkIndex - 1)
         }
 
     }
