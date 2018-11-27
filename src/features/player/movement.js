@@ -61,12 +61,12 @@ export default function handleMovement(player) {
         return nextTile < 5
     }
 
-    function dispatchMove(direction, newPos, walkIndex) {
+    function dispatchMove(direction, toPosition, walkIndex) {
 
         store.dispatch({
             type: constants.MOVE_PLAYER,
             payload: {
-                position: newPos,
+                position: toPosition,
                 walkIndex,
                 spriteLocation: getSpriteLocation(direction, walkIndex)
             }
