@@ -1,9 +1,9 @@
 /*
 
 Usage
-<World />
+<MainWorld />
 
-World component - contains the game map and the player
+MainWorld component - contains the game map and the player
 
 */
 
@@ -14,7 +14,7 @@ import Player from '../player'
 import { tiles, collision, ontile } from '../../data/maps/lemonscates'
 import store from '../../config/store'
 
-function World(props) {
+function MainWorld(props) {
 
     store.dispatch({
         type: 'ADD_TILES', payload: {
@@ -24,7 +24,7 @@ function World(props) {
 
     return (
 
-        <div // Define world position and boundaries
+        <div // Define MainWorld position and boundaries
             style={{
                 position: 'relative',
                 width: '800px',
@@ -32,7 +32,7 @@ function World(props) {
                 margin: '20px auto',
             }}
         >
-            {/* Drop game map and player component in world */}
+            {/* Drop game map and player component in MainWorld */}
             <Map />
             <Player />
 
@@ -41,4 +41,4 @@ function World(props) {
     )
 }
 
-export default World
+export default MainWorld
