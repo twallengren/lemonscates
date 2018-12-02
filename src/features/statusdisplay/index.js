@@ -9,7 +9,6 @@ Main StatusDisplay.js component - contains game world
 
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
-import { constants } from '../../config/constants'
 import { connect } from 'react-redux'
 import statusListener from './statusListener'
 

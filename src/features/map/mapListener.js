@@ -3,8 +3,8 @@
 Usage
 mapListener(StatusDisplay)
 
-Function to update character movement on map
-Wraps StatusDisplay in an event listener and updates redux state
+Function to update map based on interaction tiles
+Wraps map in an event listener and updates redux state
 
 */
 
@@ -25,24 +25,7 @@ export default function mapListener(StatusDisplay) {
         switch (interactions[y][x]) {
             case 0:
                 return
-            // case 1:
-            //     store.dispatch({
-            //         type: constants.TO_GRASS,
-            //         payload: {
-            //             health: Math.min(currentHealth + 10, 100)
-            //         }
-            //     })
-            //     return
-            // case 2:
-            //     store.dispatch({
-            //         type: constants.TO_GRASS,
-            //         payload: {
-            //             health: Math.max(currentHealth - 10, 0)
-            //         }
-            //     })
-            //     return
-            default:
-                console.log('check')
+            default: // default interaction - tile becomes grass after being stepped on 
                 let newTiles = tiles.slice()
                 let newInteractions = interactions.slice()
                 newTiles[y][x] = 0
