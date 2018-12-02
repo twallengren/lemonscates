@@ -3,6 +3,7 @@ import { constants } from '../../config/constants'
 const initialState = {
 
     health: 100,
+    carryweight: 0,
 
 }
 

@@ -11,7 +11,7 @@ import { createGround } from '../../../config/utils'
 
 const width = 20
 const height = 10
-const probArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 4, 5]
+const probArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 3, 4, 5]
 
 export const tiles = createGround(width, height, probArray)
 

@@ -1,3 +1,5 @@
+import { constants } from '../../config/constants'
+
 const initialState = {
 
     tiles: [],
@@ -10,13 +12,22 @@ const mapReducer = (state = initialState, action) => {
 
     switch (action.type) {
 
-        case 'ADD_TILES':
+        case constants.ADD_TILES:
             return {
                 ...action.payload
             }
 
+        case constants.TO_GRASS:
+            return {
+                collision: state.collision,
+                tiles: action.payload.tiles,
+                ontile: action.payload.ontile
+            }
+
         default:
-            return state
+            return {
+                ...state
+            }
 
     }
 

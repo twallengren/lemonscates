@@ -10,6 +10,7 @@ Game map component - displays the map for the game
 import React from 'react'
 import { connect } from 'react-redux'
 import { constants } from '../../config/constants'
+import mapListener from './mapListener'
 
 import './styles.css'
 
@@ -79,4 +80,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(Map)
+export default connect(mapStateToProps)(mapListener(Map))

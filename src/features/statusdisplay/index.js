@@ -30,7 +30,8 @@ class StatusDisplay extends Component {
                     justifyContent: 'center',
                     alignItems: 'center',
                 }}>
-                HEALTH: {this.props.health}
+                <div>HEALTH: {this.props.health}</div>
+                <div>CARRY WEIGHT: {this.props.carryweight}/100</div>
                 <Link to="/">
                     <div className='links'>MAIN MENU</div>
                 </Link>

@@ -11,6 +11,8 @@ export const constants = {
     NONE: 'NONE',
     GAIN_HEALTH: 'GAIN_HEALTH',
     LOSE_HEALTH: 'LOSE_HEALTH',
+    TO_GRASS: 'TO_GRASS',
+    ADD_TILES: 'ADD_TILES',
     keydown: 'keydown',
     left_arrow: 37,
     up_arrow: 38,

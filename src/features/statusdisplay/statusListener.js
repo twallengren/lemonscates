@@ -32,7 +32,7 @@ export default function statusListener(StatusDisplay) {
                 store.dispatch({
                     type: constants.GAIN_HEALTH,
                     payload: {
-                        health: currentHealth + 10
+                        health: Math.min(currentHealth + 10, 100)
                     }
                 })
                 return
@@ -40,7 +40,7 @@ export default function statusListener(StatusDisplay) {
                 store.dispatch({
                     type: constants.LOSE_HEALTH,
                     payload: {
-                        health: currentHealth - 10
+                        health: Math.max(currentHealth - 10, 0)
                     }
                 })
                 return
