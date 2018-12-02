@@ -20,6 +20,8 @@ function WinterWorld(props) {
     store.dispatch({
         type: 'ADD_TILES', payload: {
             tiles,
+            collision,
+            ontile,
         }
     })
 

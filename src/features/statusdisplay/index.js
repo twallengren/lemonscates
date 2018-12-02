@@ -11,8 +11,14 @@ import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import { constants } from '../../config/constants'
 import { connect } from 'react-redux'
+import statusListener from './statusListener'
 
 class StatusDisplay extends Component {
+
+    constructor(props) {
+        super(props)
+    }
+
     render() {
         return (
 
@@ -20,8 +26,11 @@ class StatusDisplay extends Component {
                 style={{
                     color: 'white',
                     display: 'flex',
+                    flexDirection: 'column',
                     justifyContent: 'center',
+                    alignItems: 'center',
                 }}>
+                HEALTH: {this.props.health}
                 <Link to="/">
                     <div className='links'>MAIN MENU</div>
                 </Link>
@@ -38,4 +47,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(StatusDisplay);
+export default connect(mapStateToProps)(statusListener(StatusDisplay));

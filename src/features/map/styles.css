@@ -18,3 +18,11 @@
 .chest {
     background-image: url('/tiles/chest.png')
 }
+
+.healthdrain {
+    background-color: red;
+}
+
+.healthsource {
+    background-color: green;
+}

@@ -23,6 +23,10 @@ function getTileSprite(type) {
             return 'chest'
         case 3:
             return 'rock'
+        case 4:
+            return 'healthdrain'
+        case 5:
+            return 'healthsource'
         default:
             return 'grass'
     }
