@@ -17,14 +17,12 @@ function getTileSprite(type) {
     switch (type) {
         case 0:
             return 'grass'
-        case 3:
+        case 1:
             return 'tree'
-        case 4:
+        case 2:
             return 'chest'
-        case 5:
+        case 3:
             return 'rock'
-        case 6:
-            return 'tree'
         default:
             return 'grass'
     }

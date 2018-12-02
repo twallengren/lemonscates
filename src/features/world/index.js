@@ -11,7 +11,7 @@ import React from 'react'
 import Map from '../map'
 import Player from '../player'
 
-import { tiles } from '../../data/maps/1'
+import { tiles, collision, ontile } from '../../data/maps/lemonscates'
 import store from '../../config/store'
 
 function World(props) {
