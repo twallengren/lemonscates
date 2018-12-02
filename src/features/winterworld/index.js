@@ -10,6 +10,7 @@ WinterWorld component - contains the game map and the player
 import React from 'react'
 import Map from '../map'
 import Player from '../player'
+import StatusDisplay from '../statusdisplay'
 
 import { tiles, collision, ontile } from '../../data/maps/winter'
 import store from '../../config/store'
@@ -35,6 +36,7 @@ function WinterWorld(props) {
             {/* Drop game map and player component in WinterWorld */}
             <Map />
             <Player />
+            <StatusDisplay />
 
         </div>
 

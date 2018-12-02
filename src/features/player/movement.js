@@ -58,7 +58,7 @@ export default function handleMovement(player) {
         const y = newPos[1] / constants.SPRITE_SIZE
         const x = newPos[0] / constants.SPRITE_SIZE
         const nextTile = tiles[y][x]
-        return nextTile < 5
+        return nextTile != 1
     }
 
     function dispatchMove(direction, toPosition, walkIndex) {
@@ -78,9 +78,10 @@ export default function handleMovement(player) {
         const oldPos = store.getState().player.position
         const newPos = getNewPosition(oldPos, direction)
         const tiles = store.getState().map.tiles
+        const collision = store.getState().map.collision
         const walkIndex = getWalkIndex()
 
-        if (observeBoundaries(newPos, tiles) && observeObstruction(newPos, tiles)) {
+        if (observeBoundaries(newPos, tiles) && observeObstruction(newPos, collision)) {
             dispatchMove(direction, newPos, walkIndex)
         } else {
             dispatchMove(direction, oldPos, walkIndex - 1 < 0 ? 7 : walkIndex - 1)

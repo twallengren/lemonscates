@@ -1,12 +1,10 @@
 const initialState = {
 
     tiles: [],
-    collision: [],
-    ontile: [],
 
 }
 
-const mapReducer = (state = initialState, action) => {
+const mainworldReducer = (state = initialState, action) => {
 
     switch (action.type) {
 
@@ -22,4 +20,4 @@ const mapReducer = (state = initialState, action) => {
 
 }
 
-export default mapReducer
+export default mainworldReducer

@@ -8,6 +8,7 @@ Main Menu.js component - contains game world
 */
 
 import React, { Component } from 'react'
+import { Link } from "react-router-dom";
 
 class Menu extends Component {
     render() {
@@ -15,9 +16,19 @@ class Menu extends Component {
 
             <div
                 style={{
-                    color: 'white'
+                    position: 'relative',
+                    width: '100vw',
+                    height: '100vh',
+                    margin: '0px',
+                    backgroundColor: 'grey',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center'
                 }}>
-                MAIN MENU
+                <Link to="/lemonscates">
+                    <div className='links'>PLAY GAME</div>
+                </Link>
             </div>
 
         );
