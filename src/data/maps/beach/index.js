@@ -15,8 +15,6 @@ export const tiles = createGround(width, height, probArray)
 
 ///////////////////////////////////////////////////////////////////////////
 // map tile collision detection
-// walkable: 0
-// unwalkable: 1
 
 export const collision = tiles.map(row => {
     return row.map(tile => {
@@ -26,9 +24,6 @@ export const collision = tiles.map(row => {
 
 ///////////////////////////////////////////////////////////////////////////
 // on tile interaction detection
-// none: 0
-// gain health: 1
-// lose health: 2
 
 export const ontile = tiles.map(row => {
     return row.map(tile => {
