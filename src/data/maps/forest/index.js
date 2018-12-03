@@ -1,4 +1,5 @@
 import { createGround } from '../../../config/utils'
+import { tileToCollisionMap, tileToInteractionMap } from '../../../config/constants'
 
 ///////////////////////////////////////////////////////////////////////////
 // map tile styles
@@ -6,6 +7,8 @@ import { createGround } from '../../../config/utils'
 // tree: 1
 // treasure-chest: 2
 // rock: 3
+// health drain: 4
+// health source: 5
 
 const width = 20
 const height = 10
@@ -20,24 +23,7 @@ export const tiles = createGround(width, height, probArray)
 
 export const collision = tiles.map(row => {
     return row.map(tile => {
-        switch (tile) {
-
-            case 0: // if tile is grass
-                return 0 // no collision
-
-            case 1: // if tile is tree
-                return 1 // collision
-
-            case 2: // if tile is treasure chest
-                return 1 // collision
-
-            case 3: // if tile is rock
-                return 1 // collision
-
-            default: // no collision by default
-                return 0
-
-        }
+        return tileToCollisionMap[tile]
     })
 })
 
@@ -49,23 +35,6 @@ export const collision = tiles.map(row => {
 
 export const ontile = tiles.map(row => {
     return row.map(tile => {
-        switch (tile) {
-
-            case 0: // if tile is grass
-                return 0 // no interaction
-
-            case 1: // if tile is tree
-                return 0 // interaction
-
-            case 2: // if tile is treasure chest
-                return 0 // interaction
-
-            case 3: // if tile is rock
-                return 0 // interaction
-
-            default: // no interaction by default
-                return 0
-
-        }
+        return tileToInteractionMap[tile]
     })
 })

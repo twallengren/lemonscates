@@ -13,6 +13,43 @@ import { constants } from '../../config/constants'
 
 export default function mapListener(StatusDisplay) {
 
+    function cutDownTree() {
+
+        const pos = store.getState().player.position
+        const direction = store.getState().player.direction
+        const tiles = store.getState().map.tiles
+
+        const y = pos[1] / constants.SPRITE_SIZE
+        const x = pos[0] / constants.SPRITE_SIZE
+
+        switch (direction) {
+
+            case constants.NORTH:
+
+                let newTiles = tiles.slice()
+
+                return
+
+            case constants.EAST:
+
+                return
+
+            case constants.SOUTH:
+
+                return
+
+            case constants.WEST:
+
+                return
+
+            default:
+
+                return
+
+        }
+
+    }
+
     function attemptInteraction() {
 
         const pos = store.getState().player.position
@@ -49,7 +86,7 @@ export default function mapListener(StatusDisplay) {
         switch (e.keyCode) {
 
             case constants.c_key:
-                console.log('C HAS BEEN PRESSED')
+                cutDownTree()
 
             default:
                 attemptInteraction()
