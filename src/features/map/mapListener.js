@@ -14,7 +14,7 @@ import { textureMap } from '../../config/maps'
 
 export default function mapListener(StatusDisplay) {
 
-    const cutable = [textureMap.tree, textureMap.desertPlant]
+    const cutable = [textureMap.tree, textureMap.desertPlant, textureMap.forestTree]
 
     function cutDownTree() {
 

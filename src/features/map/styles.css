@@ -29,7 +29,7 @@
     background-color: blue;
 }
 
-.desert {
+.desertFloor {
     background-image: url('/tiles/desert.jpg');
     background-size: contain;
 }
@@ -38,5 +38,28 @@
     background-color: #B5866B;
     background-image: url('/tiles/desert-plant.png'),
         url('/tiles/desert.jpg');
+    background-size: contain;
+}
+
+.desertRock {
+    background-image: url('/tiles/rock.png'),
+        url('/tiles/desert.jpg');
+    background-size: contain;
+}
+
+.forestFloor {
+    background-image: url('/tiles/forestFloor.jpg');
+    background-size: contain;
+}
+
+.forestTree {
+    background-image: url('/tiles/forestTree.png'),
+        url('/tiles/forestFloor.jpg');
+    background-size: contain;
+}
+
+.forestRock {
+    background-image: url('/tiles/rock.png'),
+        url('/tiles/forestFloor.jpg');
     background-size: contain;
 }
