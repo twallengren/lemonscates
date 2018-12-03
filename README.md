@@ -6,6 +6,6 @@ Lemonscates is a 2d role playing game. Clone this repo, then run
 
 and
 
-### 'npm start'
+### `npm start`
 
 to start!
