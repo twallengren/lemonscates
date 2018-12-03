@@ -9,9 +9,12 @@ Wraps map in an event listener and updates redux state
 */
 
 import store from '../../config/store'
-import { constants, cutToBackgroundMap } from '../../config/constants'
+import { constants, cutToBackgroundMap, cutToCollisionMap } from '../../config/constants'
+import { textureMap } from '../../config/maps'
 
 export default function mapListener(StatusDisplay) {
+
+    const cutable = [textureMap.tree, textureMap.desertPlant]
 
     function cutDownTree() {
 
@@ -27,17 +30,18 @@ export default function mapListener(StatusDisplay) {
 
             case constants.SOUTH:
 
+                // handle boundary
                 if (y + 1 > tiles.length - 1) {
                     return
                 }
 
-                if ([1, 7].includes(tiles[y + 1][x])) {
+                if (cutable.includes(tiles[y + 1][x])) {
 
                     let newTiles = tiles.slice()
                     let newCollision = collision.slice()
 
                     newTiles[y + 1][x] = cutToBackgroundMap[tiles[y + 1][x]]
-                    newCollision[y + 1][x] = cutToBackgroundMap[tiles[y + 1][x]]
+                    newCollision[y + 1][x] = cutToCollisionMap[tiles[y + 1][x]]
 
                     store.dispatch({
                         type: constants.CUT_TREE,
@@ -53,17 +57,18 @@ export default function mapListener(StatusDisplay) {
 
             case constants.NORTH:
 
+                // handle boundary
                 if (y - 1 < 0) {
                     return
                 }
 
-                if ([1, 7].includes(tiles[y - 1][x])) {
+                if (cutable.includes(tiles[y - 1][x])) {
 
                     let newTiles = tiles.slice()
                     let newCollision = collision.slice()
 
                     newTiles[y - 1][x] = cutToBackgroundMap[tiles[y - 1][x]]
-                    newCollision[y - 1][x] = cutToBackgroundMap[tiles[y - 1][x]]
+                    newCollision[y - 1][x] = cutToCollisionMap[tiles[y - 1][x]]
 
                     store.dispatch({
                         type: constants.CUT_TREE,
@@ -79,17 +84,18 @@ export default function mapListener(StatusDisplay) {
 
             case constants.WEST:
 
+                // handle boundary
                 if (x - 1 < 0) {
                     return
                 }
 
-                if ([1, 7].includes(tiles[y][x - 1])) {
+                if (cutable.includes(tiles[y][x - 1])) {
 
                     let newTiles = tiles.slice()
                     let newCollision = collision.slice()
 
                     newTiles[y][x - 1] = cutToBackgroundMap[tiles[y][x - 1]]
-                    newCollision[y][x - 1] = cutToBackgroundMap[tiles[y][x - 1]]
+                    newCollision[y][x - 1] = cutToCollisionMap[tiles[y][x - 1]]
 
                     store.dispatch({
                         type: constants.CUT_TREE,
@@ -105,17 +111,18 @@ export default function mapListener(StatusDisplay) {
 
             case constants.EAST:
 
+                // handle boundary
                 if (x + 1 > tiles[0].length - 1) {
                     return
                 }
 
-                if ([1, 7].includes(tiles[y][x + 1])) {
+                if (cutable.includes(tiles[y][x + 1])) {
 
                     let newTiles = tiles.slice()
                     let newCollision = collision.slice()
 
                     newTiles[y][x + 1] = cutToBackgroundMap[tiles[y][x + 1]]
-                    newCollision[y][x + 1] = cutToBackgroundMap[tiles[y][x + 1]]
+                    newCollision[y][x + 1] = cutToCollisionMap[tiles[y][x + 1]]
 
                     store.dispatch({
                         type: constants.CUT_TREE,
@@ -147,13 +154,19 @@ export default function mapListener(StatusDisplay) {
         const x = pos[0] / constants.SPRITE_SIZE
 
         switch (interactions[y][x]) {
+
             case 0:
+
                 return
+
             default: // default interaction - tile becomes grass after being stepped on 
+
                 let newTiles = tiles.slice()
                 let newInteractions = interactions.slice()
+
                 newTiles[y][x] = 0
                 newInteractions[y][x] = 0
+
                 store.dispatch({
                     type: constants.TO_GRASS,
                     payload: {
@@ -161,6 +174,7 @@ export default function mapListener(StatusDisplay) {
                         ontile: newInteractions
                     }
                 })
+
                 return
         }
 
