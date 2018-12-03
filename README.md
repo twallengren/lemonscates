@@ -9,3 +9,5 @@ and
 ### `npm start`
 
 to start!
+
+## Adding a new tile sprite
