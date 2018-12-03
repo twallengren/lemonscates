@@ -14,7 +14,7 @@ import { tileToCollisionMap, tileToInteractionMap } from '../../../config/consta
 
 const width = 20
 const height = 10
-const probArray = [6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7]
+const probArray = [6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7]
 
 export const tiles = createGround(width, height, probArray)
 
