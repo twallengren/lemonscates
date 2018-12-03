@@ -27,6 +27,10 @@ export default function mapListener(StatusDisplay) {
 
             case constants.SOUTH:
 
+                if (y + 1 > tiles.length - 1) {
+                    return
+                }
+
                 if (tiles[y + 1][x] === 1) {
 
                     let newTiles = tiles.slice()
@@ -48,6 +52,10 @@ export default function mapListener(StatusDisplay) {
                 return
 
             case constants.NORTH:
+
+                if (y - 1 < 0) {
+                    return
+                }
 
                 if (tiles[y - 1][x] === 1) {
 
@@ -71,6 +79,10 @@ export default function mapListener(StatusDisplay) {
 
             case constants.WEST:
 
+                if (x - 1 < 0) {
+                    return
+                }
+
                 if (tiles[y][x - 1] === 1) {
 
                     let newTiles = tiles.slice()
@@ -92,6 +104,10 @@ export default function mapListener(StatusDisplay) {
                 return
 
             case constants.EAST:
+
+                if (x + 1 > tiles[0].length - 1) {
+                    return
+                }
 
                 if (tiles[y][x + 1] === 1) {
 
