@@ -24,6 +24,13 @@ const mapReducer = (state = initialState, action) => {
                 ontile: action.payload.ontile
             }
 
+        case constants.CUT_TREE:
+            return {
+                tiles: action.payload.tiles,
+                collision: action.payload.collision,
+                ontile: state.ontile,
+            }
+
         default:
             return {
                 ...state

@@ -18,27 +18,98 @@ export default function mapListener(StatusDisplay) {
         const pos = store.getState().player.position
         const direction = store.getState().player.direction
         const tiles = store.getState().map.tiles
+        const collision = store.getState().map.collision
 
         const y = pos[1] / constants.SPRITE_SIZE
         const x = pos[0] / constants.SPRITE_SIZE
 
         switch (direction) {
 
+            case constants.SOUTH:
+
+                if (tiles[y + 1][x] === 1) {
+
+                    let newTiles = tiles.slice()
+                    let newCollision = collision.slice()
+
+                    newTiles[y + 1][x] = 0
+                    newCollision[y + 1][x] = 0
+
+                    store.dispatch({
+                        type: constants.CUT_TREE,
+                        payload: {
+                            tiles: newTiles,
+                            collision: newCollision,
+                        }
+                    })
+
+                }
+
+                return
+
             case constants.NORTH:
 
-                let newTiles = tiles.slice()
+                if (tiles[y - 1][x] === 1) {
+
+                    let newTiles = tiles.slice()
+                    let newCollision = collision.slice()
+
+                    newTiles[y - 1][x] = 0
+                    newCollision[y - 1][x] = 0
+
+                    store.dispatch({
+                        type: constants.CUT_TREE,
+                        payload: {
+                            tiles: newTiles,
+                            collision: newCollision,
+                        }
+                    })
+
+                }
+
+                return
+
+            case constants.WEST:
+
+                if (tiles[y][x - 1] === 1) {
+
+                    let newTiles = tiles.slice()
+                    let newCollision = collision.slice()
+
+                    newTiles[y][x - 1] = 0
+                    newCollision[y][x - 1] = 0
+
+                    store.dispatch({
+                        type: constants.CUT_TREE,
+                        payload: {
+                            tiles: newTiles,
+                            collision: newCollision,
+                        }
+                    })
+
+                }
 
                 return
 
             case constants.EAST:
 
-                return
+                if (tiles[y][x + 1] === 1) {
 
-            case constants.SOUTH:
+                    let newTiles = tiles.slice()
+                    let newCollision = collision.slice()
 
-                return
+                    newTiles[y][x + 1] = 0
+                    newCollision[y][x + 1] = 0
 
-            case constants.WEST:
+                    store.dispatch({
+                        type: constants.CUT_TREE,
+                        payload: {
+                            tiles: newTiles,
+                            collision: newCollision,
+                        }
+                    })
+
+                }
 
                 return
 

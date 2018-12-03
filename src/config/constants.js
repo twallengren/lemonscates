@@ -13,6 +13,7 @@ export const constants = {
     LOSE_HEALTH: 'LOSE_HEALTH',
     TO_GRASS: 'TO_GRASS',
     ADD_TILES: 'ADD_TILES',
+    CUT_TREE: 'CUT_TREE',
     keydown: 'keydown',
     left_arrow: 37,
     up_arrow: 38,
