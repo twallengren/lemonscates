@@ -11,3 +11,5 @@ and
 to start!
 
 ## Adding a new tile sprite
+
+To add a new tile sprite in the game, first put the desired sprite image in `/public/tiles`
