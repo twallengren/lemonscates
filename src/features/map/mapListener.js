@@ -10,7 +10,7 @@ Wraps map in an event listener and updates redux state
 
 import store from '../../config/store'
 import { constants, cutToBackgroundMap, cutToCollisionMap } from '../../config/constants'
-import { textureMap } from '../../config/maps'
+import { textureMap, interactionMap } from '../../config/maps'
 
 export default function mapListener(StatusDisplay) {
 
@@ -23,25 +23,25 @@ export default function mapListener(StatusDisplay) {
         const tiles = store.getState().map.tiles
         const collision = store.getState().map.collision
 
-        const y = pos[1] / constants.SPRITE_SIZE
-        const x = pos[0] / constants.SPRITE_SIZE
+        const rowIndex = pos[1] / constants.SPRITE_SIZE
+        const columnIndex = pos[0] / constants.SPRITE_SIZE
 
         switch (direction) {
 
             case constants.SOUTH:
 
                 // handle boundary
-                if (y + 1 > tiles.length - 1) {
+                if (rowIndex + 1 > tiles.length - 1) {
                     return
                 }
 
-                if (cutable.includes(tiles[y + 1][x])) {
+                if (cutable.includes(tiles[rowIndex + 1][columnIndex])) {
 
                     let newTiles = tiles.slice()
                     let newCollision = collision.slice()
 
-                    newTiles[y + 1][x] = cutToBackgroundMap[tiles[y + 1][x]]
-                    newCollision[y + 1][x] = cutToCollisionMap[tiles[y + 1][x]]
+                    newTiles[rowIndex + 1][columnIndex] = cutToBackgroundMap[tiles[rowIndex + 1][columnIndex]]
+                    newCollision[rowIndex + 1][columnIndex] = cutToCollisionMap[tiles[rowIndex + 1][columnIndex]]
 
                     store.dispatch({
                         type: constants.CUT_TREE,
@@ -58,17 +58,17 @@ export default function mapListener(StatusDisplay) {
             case constants.NORTH:
 
                 // handle boundary
-                if (y - 1 < 0) {
+                if (rowIndex - 1 < 0) {
                     return
                 }
 
-                if (cutable.includes(tiles[y - 1][x])) {
+                if (cutable.includes(tiles[rowIndex - 1][columnIndex])) {
 
                     let newTiles = tiles.slice()
                     let newCollision = collision.slice()
 
-                    newTiles[y - 1][x] = cutToBackgroundMap[tiles[y - 1][x]]
-                    newCollision[y - 1][x] = cutToCollisionMap[tiles[y - 1][x]]
+                    newTiles[rowIndex - 1][columnIndex] = cutToBackgroundMap[tiles[rowIndex - 1][columnIndex]]
+                    newCollision[rowIndex - 1][columnIndex] = cutToCollisionMap[tiles[rowIndex - 1][columnIndex]]
 
                     store.dispatch({
                         type: constants.CUT_TREE,
@@ -85,17 +85,17 @@ export default function mapListener(StatusDisplay) {
             case constants.WEST:
 
                 // handle boundary
-                if (x - 1 < 0) {
+                if (columnIndex - 1 < 0) {
                     return
                 }
 
-                if (cutable.includes(tiles[y][x - 1])) {
+                if (cutable.includes(tiles[rowIndex][columnIndex - 1])) {
 
                     let newTiles = tiles.slice()
                     let newCollision = collision.slice()
 
-                    newTiles[y][x - 1] = cutToBackgroundMap[tiles[y][x - 1]]
-                    newCollision[y][x - 1] = cutToCollisionMap[tiles[y][x - 1]]
+                    newTiles[rowIndex][columnIndex - 1] = cutToBackgroundMap[tiles[rowIndex][columnIndex - 1]]
+                    newCollision[rowIndex][columnIndex - 1] = cutToCollisionMap[tiles[rowIndex][columnIndex - 1]]
 
                     store.dispatch({
                         type: constants.CUT_TREE,
@@ -112,17 +112,17 @@ export default function mapListener(StatusDisplay) {
             case constants.EAST:
 
                 // handle boundary
-                if (x + 1 > tiles[0].length - 1) {
+                if (columnIndex + 1 > tiles[0].length - 1) {
                     return
                 }
 
-                if (cutable.includes(tiles[y][x + 1])) {
+                if (cutable.includes(tiles[rowIndex][columnIndex + 1])) {
 
                     let newTiles = tiles.slice()
                     let newCollision = collision.slice()
 
-                    newTiles[y][x + 1] = cutToBackgroundMap[tiles[y][x + 1]]
-                    newCollision[y][x + 1] = cutToCollisionMap[tiles[y][x + 1]]
+                    newTiles[rowIndex][columnIndex + 1] = cutToBackgroundMap[tiles[rowIndex][columnIndex + 1]]
+                    newCollision[rowIndex][columnIndex + 1] = cutToCollisionMap[tiles[rowIndex][columnIndex + 1]]
 
                     store.dispatch({
                         type: constants.CUT_TREE,
@@ -164,8 +164,8 @@ export default function mapListener(StatusDisplay) {
                 let newTiles = tiles.slice()
                 let newInteractions = interactions.slice()
 
-                newTiles[y][x] = 0
-                newInteractions[y][x] = 0
+                newTiles[y][x] = textureMap.grass
+                newInteractions[y][x] = interactionMap.noInteraction
 
                 store.dispatch({
                     type: constants.TO_GRASS,
