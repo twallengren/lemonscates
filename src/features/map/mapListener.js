@@ -9,7 +9,7 @@ Wraps map in an event listener and updates redux state
 */
 
 import store from '../../config/store'
-import { constants } from '../../config/constants'
+import { constants, cutToBackgroundMap } from '../../config/constants'
 
 export default function mapListener(StatusDisplay) {
 
@@ -31,13 +31,13 @@ export default function mapListener(StatusDisplay) {
                     return
                 }
 
-                if (tiles[y + 1][x] === 1) {
+                if ([1, 7].includes(tiles[y + 1][x])) {
 
                     let newTiles = tiles.slice()
                     let newCollision = collision.slice()
 
-                    newTiles[y + 1][x] = 0
-                    newCollision[y + 1][x] = 0
+                    newTiles[y + 1][x] = cutToBackgroundMap[tiles[y + 1][x]]
+                    newCollision[y + 1][x] = cutToBackgroundMap[tiles[y + 1][x]]
 
                     store.dispatch({
                         type: constants.CUT_TREE,
@@ -57,13 +57,13 @@ export default function mapListener(StatusDisplay) {
                     return
                 }
 
-                if (tiles[y - 1][x] === 1) {
+                if ([1, 7].includes(tiles[y - 1][x])) {
 
                     let newTiles = tiles.slice()
                     let newCollision = collision.slice()
 
-                    newTiles[y - 1][x] = 0
-                    newCollision[y - 1][x] = 0
+                    newTiles[y - 1][x] = cutToBackgroundMap[tiles[y - 1][x]]
+                    newCollision[y - 1][x] = cutToBackgroundMap[tiles[y - 1][x]]
 
                     store.dispatch({
                         type: constants.CUT_TREE,
@@ -83,13 +83,13 @@ export default function mapListener(StatusDisplay) {
                     return
                 }
 
-                if (tiles[y][x - 1] === 1) {
+                if ([1, 7].includes(tiles[y][x - 1])) {
 
                     let newTiles = tiles.slice()
                     let newCollision = collision.slice()
 
-                    newTiles[y][x - 1] = 0
-                    newCollision[y][x - 1] = 0
+                    newTiles[y][x - 1] = cutToBackgroundMap[tiles[y][x - 1]]
+                    newCollision[y][x - 1] = cutToBackgroundMap[tiles[y][x - 1]]
 
                     store.dispatch({
                         type: constants.CUT_TREE,
@@ -109,13 +109,13 @@ export default function mapListener(StatusDisplay) {
                     return
                 }
 
-                if (tiles[y][x + 1] === 1) {
+                if ([1, 7].includes(tiles[y][x + 1])) {
 
                     let newTiles = tiles.slice()
                     let newCollision = collision.slice()
 
-                    newTiles[y][x + 1] = 0
-                    newCollision[y][x + 1] = 0
+                    newTiles[y][x + 1] = cutToBackgroundMap[tiles[y][x + 1]]
+                    newCollision[y][x + 1] = cutToBackgroundMap[tiles[y][x + 1]]
 
                     store.dispatch({
                         type: constants.CUT_TREE,

@@ -30,6 +30,8 @@ tileCollisionMap[2] = 1 // treasure chest maps to collision
 tileCollisionMap[3] = 1 // rock maps to collision
 tileCollisionMap[4] = 0 // health drain maps to no collision
 tileCollisionMap[5] = 0 // health source maps to no collision
+tileCollisionMap[6] = 0 // desert maps to no collision
+tileCollisionMap[7] = 1 // desert plant mapst to collision
 
 export const tileToCollisionMap = Object.create(tileCollisionMap)
 
@@ -40,5 +42,13 @@ tileInteractionMap[2] = 0 // treasure chest maps to no interaction
 tileInteractionMap[3] = 0 // rock maps to no interaction
 tileInteractionMap[4] = 2 // health drain maps to lose health
 tileInteractionMap[5] = 1 // health source maps to gain health
+tileInteractionMap[6] = 0 // desert maps to no interaction
+tileInteractionMap[7] = 0 // desert plant maps to no interaction
 
 export const tileToInteractionMap = Object.create(tileInteractionMap)
+
+var cutBackgroundMap = {}
+cutBackgroundMap[1] = 0 // tree maps to grass
+cutBackgroundMap[7] = 6 // desert plant maps to desert
+
+export const cutToBackgroundMap = Object.create(cutBackgroundMap)

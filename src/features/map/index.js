@@ -28,6 +28,10 @@ function getTileSprite(type) {
             return 'healthdrain'
         case 5:
             return 'healthsource'
+        case 6:
+            return 'desert'
+        case 7:
+            return 'desertplant'
         default:
             return 'grass'
     }

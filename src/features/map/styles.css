@@ -1,6 +1,5 @@
 .tile {
     display: inline-flex;
-    background-color: #42b842;
 }
 
 .grass {
@@ -8,14 +7,17 @@
 }
 
 .rock {
+    background-color: #42b842;
     background-image: url('/tiles/rock.png')
 }
 
 .tree {
+    background-color: #42b842;
     background-image: url('/tiles/tree.png')
 }
 
 .chest {
+    background-color: #42b842;
     background-image: url('/tiles/chest.png')
 }
 
@@ -25,4 +27,14 @@
 
 .healthsource {
     background-color: green;
+}
+
+.desert {
+    background-image: url('/tiles/desert.jpg');
+    background-size: contain;
+}
+
+.desertplant {
+    background-image: url('/tiles/desertplant.jpg');
+    background-size: contain;
 }

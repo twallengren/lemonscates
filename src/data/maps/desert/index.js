@@ -7,10 +7,14 @@ import { tileToCollisionMap, tileToInteractionMap } from '../../../config/consta
 // tree: 1
 // treasure-chest: 2
 // rock: 3
+// health drain: 4
+// health source: 5
+// desert: 6
+// desert plant: 7
 
 const width = 20
 const height = 10
-const probArray = [0, 0, 0, 0, 0, 1, 1, 1, 1, 3]
+const probArray = [6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7]
 
 export const tiles = createGround(width, height, probArray)
 
