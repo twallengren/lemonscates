@@ -1,5 +1,10 @@
+import { textureMap, collisionMap, interactionMap } from './maps'
+
+/////////////////////////////////////////////////////////////////////////////
+// size of character in pixels
 const SPRITE_SIZE = 40
 
+// general constants
 export const constants = {
 
     SPRITE_SIZE,
@@ -23,32 +28,41 @@ export const constants = {
 
 }
 
+/////////////////////////////////////////////////////////////////////////////
+// tile to collision map
+
 var tileCollisionMap = {}
-tileCollisionMap[0] = 0 // grass maps to no collision
-tileCollisionMap[1] = 1 // tree maps to collision
-tileCollisionMap[2] = 1 // treasure chest maps to collision
-tileCollisionMap[3] = 1 // rock maps to collision
-tileCollisionMap[4] = 0 // health drain maps to no collision
-tileCollisionMap[5] = 0 // health source maps to no collision
-tileCollisionMap[6] = 0 // desert maps to no collision
-tileCollisionMap[7] = 1 // desert plant mapst to collision
+tileCollisionMap[textureMap.grass] = collisionMap.noCollision // grass maps to no collision
+tileCollisionMap[textureMap.tree] = collisionMap.collision // tree maps to collision
+tileCollisionMap[textureMap.treasureChest] = collisionMap.collision // treasure chest maps to collision
+tileCollisionMap[textureMap.rock] = collisionMap.collision // rock maps to collision
+tileCollisionMap[textureMap.healthDrain] = collisionMap.noCollision // health drain maps to no collision
+tileCollisionMap[textureMap.healthSource] = collisionMap.noCollision // health source maps to no collision
+tileCollisionMap[textureMap.desert] = collisionMap.noCollision // desert maps to no collision
+tileCollisionMap[textureMap.desertPlant] = collisionMap.collision // desert plant maps to collision
 
 export const tileToCollisionMap = Object.create(tileCollisionMap)
 
+/////////////////////////////////////////////////////////////////////////////
+// tile to interaction map
+
 var tileInteractionMap = {}
-tileInteractionMap[0] = 0 // grass maps to no interaction
-tileInteractionMap[1] = 0 // tree maps to no interaction
-tileInteractionMap[2] = 0 // treasure chest maps to no interaction
-tileInteractionMap[3] = 0 // rock maps to no interaction
-tileInteractionMap[4] = 2 // health drain maps to lose health
-tileInteractionMap[5] = 1 // health source maps to gain health
-tileInteractionMap[6] = 0 // desert maps to no interaction
-tileInteractionMap[7] = 0 // desert plant maps to no interaction
+tileInteractionMap[textureMap.grass] = interactionMap.noInteraction // grass maps to no interaction
+tileInteractionMap[textureMap.tree] = interactionMap.noInteraction // tree maps to no interaction
+tileInteractionMap[textureMap.treasureChest] = interactionMap.noInteraction // treasure chest maps to no interaction
+tileInteractionMap[textureMap.rock] = interactionMap.noInteraction // rock maps to no interaction
+tileInteractionMap[textureMap.healthDrain] = interactionMap.healthDrain // health drain maps to lose health
+tileInteractionMap[textureMap.healthSource] = interactionMap.healthSource // health source maps to gain health
+tileInteractionMap[textureMap.desert] = interactionMap.noInteraction // desert maps to no interaction
+tileInteractionMap[textureMap.desertPlant] = interactionMap.noInteraction // desert plant maps to no interaction
 
 export const tileToInteractionMap = Object.create(tileInteractionMap)
 
+/////////////////////////////////////////////////////////////////////////////
+// cut tree/plant to background map
+
 var cutBackgroundMap = {}
-cutBackgroundMap[1] = 0 // tree maps to grass
-cutBackgroundMap[7] = 6 // desert plant maps to desert
+cutBackgroundMap[textureMap.tree] = textureMap.grass // tree maps to grass
+cutBackgroundMap[textureMap.desertPlant] = textureMap.desert // desert plant maps to desert
 
 export const cutToBackgroundMap = Object.create(cutBackgroundMap)

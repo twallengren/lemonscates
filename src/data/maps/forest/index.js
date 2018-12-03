@@ -1,20 +1,15 @@
 import { createGround } from '../../../config/utils'
 import { tileToCollisionMap, tileToInteractionMap } from '../../../config/constants'
+import { textureMap } from '../../../config/maps'
 
 ///////////////////////////////////////////////////////////////////////////
 // map tile styles
-// grass: 0
-// tree: 1
-// treasure-chest: 2
-// rock: 3
-// health drain: 4
-// health source: 5
-// desert: 6
-// desert plant: 7
 
 const width = 20
 const height = 10
-const probArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 3]
+const probArray = Array(10).fill(textureMap.grass)
+    .concat(Array(5).fill(textureMap.tree))
+    .concat(Array(1).fill(textureMap.rock))
 
 export const tiles = createGround(width, height, probArray)
 
