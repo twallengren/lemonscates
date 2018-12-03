@@ -11,30 +11,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { constants } from '../../config/constants'
 import mapListener from './mapListener'
+import { textureMap } from '../../config/maps'
+import _ from 'lodash'
 
 import './styles.css'
 
 function getTileSprite(type) {
-    switch (type) {
-        case 0:
-            return 'grass'
-        case 1:
-            return 'tree'
-        case 2:
-            return 'chest'
-        case 3:
-            return 'rock'
-        case 4:
-            return 'healthdrain'
-        case 5:
-            return 'healthsource'
-        case 6:
-            return 'desert'
-        case 7:
-            return 'desertplant'
-        default:
-            return 'grass'
-    }
+    return _.invert(textureMap)[type]
 }
 
 function MapTile(props) {

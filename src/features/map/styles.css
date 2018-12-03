@@ -21,11 +21,11 @@
     background-image: url('/tiles/chest.png')
 }
 
-.healthdrain {
+.healthDrain {
     background-color: red;
 }
 
-.healthsource {
+.healthSource {
     background-color: green;
 }
 
@@ -34,7 +34,7 @@
     background-size: contain;
 }
 
-.desertplant {
+.desertPlant {
     background-image: url('/tiles/desertplant.jpg');
     background-size: contain;
 }
