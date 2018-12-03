@@ -68,7 +68,8 @@ export default function handleMovement(player) {
             payload: {
                 position: toPosition,
                 walkIndex,
-                spriteLocation: getSpriteLocation(direction, walkIndex)
+                spriteLocation: getSpriteLocation(direction, walkIndex),
+                direction,
             }
         })
 

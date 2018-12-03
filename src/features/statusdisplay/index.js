@@ -34,6 +34,21 @@ class StatusDisplay extends Component {
                 <Link to="/">
                     <div className='links'>MAIN MENU</div>
                 </Link>
+                <Link to="/lemonscates">
+                    <div className='links'>CENTRAL CITY</div>
+                </Link>
+                <Link to="/forest">
+                    <div className='links'>FOREST WORLD</div>
+                </Link>
+                <Link to="/desert">
+                    <div className='links'>DESERT WORLD</div>
+                </Link>
+                <Link to="/beach">
+                    <div className='links'>BEACH WORLD</div>
+                </Link>
+                <Link to="/winter">
+                    <div className='links'>WINTER WORLD</div>
+                </Link>
             </div>
 
         );

@@ -48,6 +48,9 @@ export default function mapListener(StatusDisplay) {
 
         switch (e.keyCode) {
 
+            case constants.c_key:
+                console.log('C HAS BEEN PRESSED')
+
             default:
                 attemptInteraction()
         }

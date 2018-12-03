@@ -18,5 +18,6 @@ export const constants = {
     up_arrow: 38,
     right_arrow: 39,
     down_arrow: 40,
+    c_key: 67,
 
 }
