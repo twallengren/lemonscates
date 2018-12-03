@@ -10,6 +10,7 @@ Wraps StatusDisplay in an event listener and updates redux state
 
 import store from '../../config/store'
 import { constants } from '../../config/constants'
+import { interactionMap } from '../../config/maps'
 
 export default function statusListener(StatusDisplay) {
 
@@ -26,26 +27,37 @@ export default function statusListener(StatusDisplay) {
         const interactions = store.getState().map.ontile
 
         switch (observeInteraction(pos, interactions)) {
-            case 0:
+
+            case interactionMap.noInteraction:
+
                 return
-            case 1:
+
+            case interactionMap.healthSource:
+
                 store.dispatch({
                     type: constants.GAIN_HEALTH,
                     payload: {
                         health: Math.min(currentHealth + 10, 100)
                     }
                 })
+
                 return
-            case 2:
+
+            case interactionMap.healthDrain:
+
                 store.dispatch({
                     type: constants.LOSE_HEALTH,
                     payload: {
                         health: Math.max(currentHealth - 10, 0)
                     }
                 })
+
                 return
+
             default:
+
                 return
+
         }
 
     }

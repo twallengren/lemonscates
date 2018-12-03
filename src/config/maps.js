@@ -33,7 +33,12 @@ export const collisionMap = {
 
 // interaction map object - helps with syntax
 export const interactionMap = {
+
+    // no interaction - default
     noInteraction: 0,
-    healthSource: 1,
-    healthDrain: 2,
+
+    // health interactions
+    // keep in form 10x
+    healthSource: 100,
+    healthDrain: 101,
 }
