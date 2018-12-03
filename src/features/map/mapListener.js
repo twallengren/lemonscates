@@ -150,12 +150,12 @@ export default function mapListener(StatusDisplay) {
         const interactions = store.getState().map.ontile
         const tiles = store.getState().map.tiles
 
-        const y = pos[1] / constants.SPRITE_SIZE
-        const x = pos[0] / constants.SPRITE_SIZE
+        const rowIndex = pos[1] / constants.SPRITE_SIZE
+        const columnIndex = pos[0] / constants.SPRITE_SIZE
 
-        switch (interactions[y][x]) {
+        switch (interactions[rowIndex][columnIndex]) {
 
-            case 0:
+            case interactionMap.noInteraction:
 
                 return
 
@@ -164,8 +164,8 @@ export default function mapListener(StatusDisplay) {
                 let newTiles = tiles.slice()
                 let newInteractions = interactions.slice()
 
-                newTiles[y][x] = textureMap.grass
-                newInteractions[y][x] = interactionMap.noInteraction
+                newTiles[rowIndex][columnIndex] = textureMap.grass
+                newInteractions[rowIndex][columnIndex] = interactionMap.noInteraction
 
                 store.dispatch({
                     type: constants.TO_GRASS,

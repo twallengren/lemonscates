@@ -3,7 +3,7 @@
 Usage
 statusListener(StatusDisplay)
 
-Function to update character movement on map
+Function to update character status
 Wraps StatusDisplay in an event listener and updates redux state
 
 */
@@ -14,10 +14,10 @@ import { interactionMap } from '../../config/maps'
 
 export default function statusListener(StatusDisplay) {
 
-    function observeInteraction(newPos, interactions) {
-        const y = newPos[1] / constants.SPRITE_SIZE
-        const x = newPos[0] / constants.SPRITE_SIZE
-        return interactions[y][x]
+    function observeInteraction(pos, interactions) {
+        const rowIndex = pos[1] / constants.SPRITE_SIZE
+        const columnIndex = pos[0] / constants.SPRITE_SIZE
+        return interactions[rowIndex][columnIndex]
     }
 
     function attemptInteraction() {
