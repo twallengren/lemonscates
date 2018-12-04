@@ -29,6 +29,10 @@
     background-color: blue;
 }
 
+.genericBrush {
+    background-color: brown;
+}
+
 .desertFloor {
     background-image: url('/tiles/desert.jpg');
     background-size: contain;
@@ -47,6 +51,10 @@
     background-size: contain;
 }
 
+.desertBrush {
+    background-color: brown;
+}
+
 .forestFloor {
     background-image: url('/tiles/forestFloor.jpg');
     background-size: contain;
@@ -62,4 +70,29 @@
     background-image: url('/tiles/rock.png'),
         url('/tiles/forestFloor.jpg');
     background-size: contain;
+}
+
+.forestBrush {
+    background-color: brown;
+}
+
+.snowFloor {
+    background-image: url('/tiles/snowFloor.jpg');
+    background-size: contain;
+}
+
+.snowTree {
+    background-image: url('/tiles/forestTree.png'),
+        url('/tiles/snowFloor.jpg');
+    background-size: contain;
+}
+
+.snowRock {
+    background-image: url('/tiles/rock.png'),
+        url('/tiles/snowFloor.jpg');
+    background-size: contain;
+}
+
+.snowBrush {
+    background-color: brown;
 }

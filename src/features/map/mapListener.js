@@ -9,12 +9,21 @@ Wraps map in an event listener and updates redux state
 */
 
 import store from '../../config/store'
-import { constants, cutToBackgroundMap, cutToCollisionMap } from '../../config/constants'
+import { constants, cutToBackgroundMap, cutToCollisionMap, cutToInteractionMap, walkToInteractionTextureMap } from '../../config/constants'
 import { textureMap, interactionMap } from '../../config/maps'
 
 export default function mapListener(StatusDisplay) {
 
-    const cutable = [textureMap.tree, textureMap.desertPlant, textureMap.forestTree]
+    const cutablePlants = [
+        textureMap.tree,
+        textureMap.desertPlant,
+        textureMap.forestTree,
+        textureMap.snowTree,
+        textureMap.genericBrush,
+        textureMap.desertBrush,
+        textureMap.forestBrush,
+        textureMap.snowBrush,
+    ]
 
     function cutDownTree() {
 
@@ -22,6 +31,7 @@ export default function mapListener(StatusDisplay) {
         const direction = store.getState().player.direction
         const tiles = store.getState().map.tiles
         const collision = store.getState().map.collision
+        const interaction = store.getState().map.ontile
 
         const rowIndex = pos[1] / constants.SPRITE_SIZE
         const columnIndex = pos[0] / constants.SPRITE_SIZE
@@ -35,19 +45,24 @@ export default function mapListener(StatusDisplay) {
                     return
                 }
 
-                if (cutable.includes(tiles[rowIndex + 1][columnIndex])) {
+                if (cutablePlants.includes(tiles[rowIndex + 1][columnIndex])) {
 
-                    let newTiles = tiles.slice()
-                    let newCollision = collision.slice()
+                    let newTiles = Array.from(tiles)
+                    let newCollision = Array.from(collision)
+                    let newInteraction = Array.from(interaction)
 
-                    newTiles[rowIndex + 1][columnIndex] = cutToBackgroundMap[tiles[rowIndex + 1][columnIndex]]
-                    newCollision[rowIndex + 1][columnIndex] = cutToCollisionMap[tiles[rowIndex + 1][columnIndex]]
+                    const tileCut = tiles[rowIndex + 1][columnIndex]
+
+                    newTiles[rowIndex + 1][columnIndex] = cutToBackgroundMap[tileCut]
+                    newCollision[rowIndex + 1][columnIndex] = cutToCollisionMap[tileCut]
+                    newInteraction[rowIndex + 1][columnIndex] = cutToInteractionMap[tileCut]
 
                     store.dispatch({
                         type: constants.CUT_TREE,
                         payload: {
                             tiles: newTiles,
                             collision: newCollision,
+                            ontile: newInteraction,
                         }
                     })
 
@@ -62,19 +77,24 @@ export default function mapListener(StatusDisplay) {
                     return
                 }
 
-                if (cutable.includes(tiles[rowIndex - 1][columnIndex])) {
+                if (cutablePlants.includes(tiles[rowIndex - 1][columnIndex])) {
 
-                    let newTiles = tiles.slice()
-                    let newCollision = collision.slice()
+                    let newTiles = Array.from(tiles)
+                    let newCollision = Array.from(collision)
+                    let newInteraction = Array.from(interaction)
 
-                    newTiles[rowIndex - 1][columnIndex] = cutToBackgroundMap[tiles[rowIndex - 1][columnIndex]]
-                    newCollision[rowIndex - 1][columnIndex] = cutToCollisionMap[tiles[rowIndex - 1][columnIndex]]
+                    const tileCut = tiles[rowIndex - 1][columnIndex]
+
+                    newTiles[rowIndex - 1][columnIndex] = cutToBackgroundMap[tileCut]
+                    newCollision[rowIndex - 1][columnIndex] = cutToCollisionMap[tileCut]
+                    newInteraction[rowIndex - 1][columnIndex] = cutToInteractionMap[tileCut]
 
                     store.dispatch({
                         type: constants.CUT_TREE,
                         payload: {
                             tiles: newTiles,
                             collision: newCollision,
+                            ontile: newInteraction,
                         }
                     })
 
@@ -89,19 +109,24 @@ export default function mapListener(StatusDisplay) {
                     return
                 }
 
-                if (cutable.includes(tiles[rowIndex][columnIndex - 1])) {
+                if (cutablePlants.includes(tiles[rowIndex][columnIndex - 1])) {
 
-                    let newTiles = tiles.slice()
-                    let newCollision = collision.slice()
+                    let newTiles = Array.from(tiles)
+                    let newCollision = Array.from(collision)
+                    let newInteraction = Array.from(interaction)
 
-                    newTiles[rowIndex][columnIndex - 1] = cutToBackgroundMap[tiles[rowIndex][columnIndex - 1]]
-                    newCollision[rowIndex][columnIndex - 1] = cutToCollisionMap[tiles[rowIndex][columnIndex - 1]]
+                    const tileCut = tiles[rowIndex][columnIndex - 1]
+
+                    newTiles[rowIndex][columnIndex - 1] = cutToBackgroundMap[tileCut]
+                    newCollision[rowIndex][columnIndex - 1] = cutToCollisionMap[tileCut]
+                    newInteraction[rowIndex][columnIndex - 1] = cutToInteractionMap[tileCut]
 
                     store.dispatch({
                         type: constants.CUT_TREE,
                         payload: {
                             tiles: newTiles,
                             collision: newCollision,
+                            ontile: newInteraction,
                         }
                     })
 
@@ -116,19 +141,24 @@ export default function mapListener(StatusDisplay) {
                     return
                 }
 
-                if (cutable.includes(tiles[rowIndex][columnIndex + 1])) {
+                if (cutablePlants.includes(tiles[rowIndex][columnIndex + 1])) {
 
-                    let newTiles = tiles.slice()
-                    let newCollision = collision.slice()
+                    let newTiles = Array.from(tiles)
+                    let newCollision = Array.from(collision)
+                    let newInteraction = Array.from(interaction)
 
-                    newTiles[rowIndex][columnIndex + 1] = cutToBackgroundMap[tiles[rowIndex][columnIndex + 1]]
-                    newCollision[rowIndex][columnIndex + 1] = cutToCollisionMap[tiles[rowIndex][columnIndex + 1]]
+                    const tileCut = tiles[rowIndex][columnIndex + 1]
+
+                    newTiles[rowIndex][columnIndex + 1] = cutToBackgroundMap[tileCut]
+                    newCollision[rowIndex][columnIndex + 1] = cutToCollisionMap[tileCut]
+                    newInteraction[rowIndex][columnIndex + 1] = cutToInteractionMap[tileCut]
 
                     store.dispatch({
                         type: constants.CUT_TREE,
                         payload: {
                             tiles: newTiles,
                             collision: newCollision,
+                            ontile: newInteraction,
                         }
                     })
 
@@ -147,31 +177,33 @@ export default function mapListener(StatusDisplay) {
     function attemptInteraction() {
 
         const pos = store.getState().player.position
-        const interactions = store.getState().map.ontile
+        const interaction = store.getState().map.ontile
         const tiles = store.getState().map.tiles
 
         const rowIndex = pos[1] / constants.SPRITE_SIZE
         const columnIndex = pos[0] / constants.SPRITE_SIZE
 
-        switch (interactions[rowIndex][columnIndex]) {
+        switch (interaction[rowIndex][columnIndex]) {
 
             case interactionMap.noInteraction:
 
                 return
 
-            default: // default interaction - tile becomes grass after being stepped on 
+            default: // default interaction - tile becomes ground after being stepped on 
 
-                let newTiles = tiles.slice()
-                let newInteractions = interactions.slice()
+                let newTiles = Array.from(tiles)
+                let newInteraction = Array.from(interaction)
 
-                newTiles[rowIndex][columnIndex] = textureMap.grass
-                newInteractions[rowIndex][columnIndex] = interactionMap.noInteraction
+                const tileCut = tiles[rowIndex][columnIndex]
+
+                newTiles[rowIndex][columnIndex] = walkToInteractionTextureMap[tileCut]
+                newInteraction[rowIndex][columnIndex] = interactionMap.noInteraction
 
                 store.dispatch({
-                    type: constants.TO_GRASS,
+                    type: constants.TO_GROUND,
                     payload: {
                         tiles: newTiles,
-                        ontile: newInteractions
+                        ontile: newInteraction
                     }
                 })
 

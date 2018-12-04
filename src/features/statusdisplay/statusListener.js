@@ -24,6 +24,7 @@ export default function statusListener(StatusDisplay) {
 
         const pos = store.getState().player.position
         const currentHealth = store.getState().status.health
+        const currentWeight = store.getState().status.carryweight
         const interactions = store.getState().map.ontile
 
         switch (observeInteraction(pos, interactions)) {
@@ -35,7 +36,7 @@ export default function statusListener(StatusDisplay) {
             case interactionMap.healthSource:
 
                 store.dispatch({
-                    type: constants.GAIN_HEALTH,
+                    type: constants.CHANGE_HEALTH,
                     payload: {
                         health: Math.min(currentHealth + 10, 100)
                     }
@@ -46,13 +47,22 @@ export default function statusListener(StatusDisplay) {
             case interactionMap.healthDrain:
 
                 store.dispatch({
-                    type: constants.LOSE_HEALTH,
+                    type: constants.CHANGE_HEALTH,
                     payload: {
                         health: Math.max(currentHealth - 10, 0)
                     }
                 })
 
                 return
+
+            case interactionMap.addWeight:
+
+                store.dispatch({
+                    type: constants.CHANGE_WEIGHT,
+                    payload: {
+                        carryweight: currentWeight + 10
+                    }
+                })
 
             default:
 

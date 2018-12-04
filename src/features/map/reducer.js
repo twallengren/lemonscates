@@ -17,7 +17,7 @@ const mapReducer = (state = initialState, action) => {
                 ...action.payload
             }
 
-        case constants.TO_GRASS:
+        case constants.TO_GROUND:
             return {
                 collision: state.collision,
                 tiles: action.payload.tiles,
@@ -28,7 +28,7 @@ const mapReducer = (state = initialState, action) => {
             return {
                 tiles: action.payload.tiles,
                 collision: action.payload.collision,
-                ontile: state.ontile,
+                ontile: action.payload.ontile,
             }
 
         default:

@@ -7,9 +7,9 @@ import { textureMap } from '../../../config/maps'
 
 const width = 20
 const height = 10
-const probArray = Array(10).fill(textureMap.grass)
-    .concat(Array(5).fill(textureMap.healthDrain))
-    .concat(Array(5).fill(textureMap.healthSource))
+const probArray = Array(10).fill(textureMap.snowFloor)
+    .concat(Array(5).fill(textureMap.snowTree))
+    .concat(Array(2).fill(textureMap.snowRock))
 
 export const tiles = createGround(width, height, probArray)
 

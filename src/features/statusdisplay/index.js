@@ -30,7 +30,7 @@ class StatusDisplay extends Component {
                     alignItems: 'center',
                 }}>
                 <div>HEALTH: {this.props.health}</div>
-                <div>CARRY WEIGHT: {this.props.carryweight}/100</div>
+                <div>CARRY WEIGHT: {this.props.carryweight}</div>
                 <Link to="/">
                     <div className='links'>MAIN MENU</div>
                 </Link>

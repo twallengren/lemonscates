@@ -14,11 +14,11 @@ export const constants = {
     WEST: 'WEST',
     MOVE_PLAYER: 'MOVE_PLAYER',
     NONE: 'NONE',
-    GAIN_HEALTH: 'GAIN_HEALTH',
-    LOSE_HEALTH: 'LOSE_HEALTH',
-    TO_GRASS: 'TO_GRASS',
+    CHANGE_HEALTH: 'CHANGE_HEALTH',
+    TO_GROUND: 'TO_GROUND',
     ADD_TILES: 'ADD_TILES',
     CUT_TREE: 'CUT_TREE',
+    CHANGE_WEIGHT: 'CHANGE_WEIGHT',
     keydown: 'keydown',
     left_arrow: 37,
     up_arrow: 38,
@@ -40,16 +40,25 @@ tileCollisionMap[textureMap.treasureChest] = collisionMap.collision
 tileCollisionMap[textureMap.rock] = collisionMap.collision
 tileCollisionMap[textureMap.healthDrain] = collisionMap.noCollision
 tileCollisionMap[textureMap.healthSource] = collisionMap.noCollision
+tileCollisionMap[textureMap.genericBrush] = collisionMap.noCollision
 
 // map desert tile sprites to collision/no collision
 tileCollisionMap[textureMap.desertFloor] = collisionMap.noCollision
 tileCollisionMap[textureMap.desertPlant] = collisionMap.collision
 tileCollisionMap[textureMap.desertRock] = collisionMap.collision
+tileCollisionMap[textureMap.desertBrush] = collisionMap.noCollision
 
 // map forest tile sprites to collision/no collision
 tileCollisionMap[textureMap.forestFloor] = collisionMap.noCollision
 tileCollisionMap[textureMap.forestTree] = collisionMap.collision
 tileCollisionMap[textureMap.forestRock] = collisionMap.collision
+tileCollisionMap[textureMap.forestBrush] = collisionMap.noCollision
+
+// map snow tile sprites to collision/no collision
+tileCollisionMap[textureMap.snowFloor] = collisionMap.noCollision
+tileCollisionMap[textureMap.snowTree] = collisionMap.collision
+tileCollisionMap[textureMap.snowRock] = collisionMap.collision
+tileCollisionMap[textureMap.snowBrush] = collisionMap.noCollision
 
 export const tileToCollisionMap = Object.create(tileCollisionMap)
 
@@ -65,32 +74,49 @@ tileInteractionMap[textureMap.treasureChest] = interactionMap.noInteraction
 tileInteractionMap[textureMap.rock] = interactionMap.noInteraction
 tileInteractionMap[textureMap.healthDrain] = interactionMap.healthDrain
 tileInteractionMap[textureMap.healthSource] = interactionMap.healthSource
+tileInteractionMap[textureMap.genericBrush] = interactionMap.addWeight
 
 // map desert tile sprites to interaction/no interaction
 tileInteractionMap[textureMap.desertFloor] = interactionMap.noInteraction
 tileInteractionMap[textureMap.desertPlant] = interactionMap.noInteraction
 tileInteractionMap[textureMap.desertRock] = interactionMap.noInteraction
+tileInteractionMap[textureMap.desertBrush] = interactionMap.addWeight
 
 // map forest tile sprites to interaction/no interaction
 tileInteractionMap[textureMap.forestFloor] = interactionMap.noInteraction
 tileInteractionMap[textureMap.forestTree] = interactionMap.noInteraction
 tileInteractionMap[textureMap.forestRock] = interactionMap.noInteraction
+tileInteractionMap[textureMap.forestBrush] = interactionMap.addWeight
+
+// map snow tile sprites to interaction/no interaction
+tileInteractionMap[textureMap.snowFloor] = interactionMap.noInteraction
+tileInteractionMap[textureMap.snowTree] = interactionMap.noInteraction
+tileInteractionMap[textureMap.snowRock] = interactionMap.noInteraction
+tileInteractionMap[textureMap.snowBrush] = interactionMap.addWeight
 
 export const tileToInteractionMap = Object.create(tileInteractionMap)
 
 /////////////////////////////////////////////////////////////////////////////
 // cut tree/plant to background map
 // this is where we define which tile sprites become which tile sprites when cut
+// ie the first entry says a tree should become genericBrush when cut
 var cutBackgroundMap = {}
 
-// map tree to grass when cut
-cutBackgroundMap[textureMap.tree] = textureMap.grass
+// map generic tile sprites
+cutBackgroundMap[textureMap.tree] = textureMap.genericBrush
+cutBackgroundMap[textureMap.genericBrush] = textureMap.grass
 
-// map desert plant to desert floor when cut
-cutBackgroundMap[textureMap.desertPlant] = textureMap.desertFloor
+// map desert tile sprites
+cutBackgroundMap[textureMap.desertPlant] = textureMap.desertBrush
+cutBackgroundMap[textureMap.desertBrush] = textureMap.desertFloor
 
-// map forest tree to forest floor when cut
-cutBackgroundMap[textureMap.forestTree] = textureMap.forestFloor
+// map forest tile sprites
+cutBackgroundMap[textureMap.forestTree] = textureMap.forestBrush
+cutBackgroundMap[textureMap.forestBrush] = textureMap.forestFloor
+
+// map snow tile sprites
+cutBackgroundMap[textureMap.snowTree] = textureMap.snowBrush
+cutBackgroundMap[textureMap.snowBrush] = textureMap.snowFloor
 
 export const cutToBackgroundMap = Object.create(cutBackgroundMap)
 
@@ -99,13 +125,64 @@ export const cutToBackgroundMap = Object.create(cutBackgroundMap)
 // this is where we define how the collision map changes when tile sprites are cut
 var cutCollisionMap = {}
 
-// can walk through tree after cut
+// map generic tile sprites
 cutCollisionMap[textureMap.tree] = collisionMap.noCollision
+cutCollisionMap[textureMap.genericBrush] = collisionMap.noCollision
 
-// can walk through desert plant after cut
+// map desert tile sprites
 cutCollisionMap[textureMap.desertPlant] = collisionMap.noCollision
+cutCollisionMap[textureMap.desertBrush] = collisionMap.noCollision
 
-// can walk through forest tree after cut
+// map forest tile sprites
 cutCollisionMap[textureMap.forestTree] = collisionMap.noCollision
+cutCollisionMap[textureMap.forestBrush] = collisionMap.noCollision
+
+// map snow tile sprites
+cutCollisionMap[textureMap.snowTree] = collisionMap.noCollision
+cutCollisionMap[textureMap.snowBrush] = collisionMap.noCollision
 
 export const cutToCollisionMap = Object.create(cutCollisionMap)
+
+/////////////////////////////////////////////////////////////////////////////
+// cut interaction map
+// this is where we define how the interaction map changes when tile sprites are cut
+var cutInteractionMap = {}
+
+// map generic tile sprites
+cutInteractionMap[textureMap.tree] = interactionMap.addWeight
+cutInteractionMap[textureMap.genericBrush] = interactionMap.noInteraction
+
+// map desert tile sprites
+cutInteractionMap[textureMap.desertPlant] = interactionMap.addWeight
+cutInteractionMap[textureMap.desertBrush] = interactionMap.noInteraction
+
+// map forest tile sprites
+cutInteractionMap[textureMap.forestTree] = interactionMap.addWeight
+cutInteractionMap[textureMap.forestBrush] = interactionMap.noInteraction
+
+// map snow tile sprites
+cutInteractionMap[textureMap.snowTree] = interactionMap.addWeight
+cutInteractionMap[textureMap.snowBrush] = interactionMap.noInteraction
+
+export const cutToInteractionMap = Object.create(cutInteractionMap)
+
+/////////////////////////////////////////////////////////////////////////////
+// cut interaction map
+// this is where we define how the texture map changes when interactive tile sprites are walked on
+var walkInteractionTextureMap = {}
+
+// map generic tile sprites
+walkInteractionTextureMap[textureMap.healthDrain] = textureMap.grass
+walkInteractionTextureMap[textureMap.healthSource] = textureMap.grass
+walkInteractionTextureMap[textureMap.genericBrush] = textureMap.grass
+
+// map desert tile sprites
+walkInteractionTextureMap[textureMap.desertBrush] = textureMap.desertFloor
+
+// map forest tile sprites
+walkInteractionTextureMap[textureMap.forestBrush] = textureMap.forestFloor
+
+// map snow tile sprites
+walkInteractionTextureMap[textureMap.snowBrush] = textureMap.snowFloor
+
+export const walkToInteractionTextureMap = Object.create(walkInteractionTextureMap)

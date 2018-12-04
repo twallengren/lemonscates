@@ -11,14 +11,16 @@ const statusReducer = (state = initialState, action) => {
 
     switch (action.type) {
 
-        case constants.LOSE_HEALTH:
+        case constants.CHANGE_HEALTH:
             return {
-                ...action.payload,
+                health: action.payload.health,
+                carryweight: state.carryweight,
             }
 
-        case constants.GAIN_HEALTH:
+        case constants.CHANGE_WEIGHT:
             return {
-                ...action.payload,
+                health: state.health,
+                carryweight: action.payload.carryweight
             }
 
         default:
