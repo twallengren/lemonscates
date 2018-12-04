@@ -10,8 +10,8 @@ const rootReducer = combineReducers({
 })
 
 const store = createStore(
-    rootReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    rootReducer, // add reducer to the store
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() // enable redux devtools
 )
 
 export default store

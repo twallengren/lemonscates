@@ -1,3 +1,4 @@
+// import maps for code readability
 import { textureMap, collisionMap, interactionMap } from './maps'
 
 /////////////////////////////////////////////////////////////////////////////

@@ -3,13 +3,19 @@ import { tileToCollisionMap, tileToInteractionMap } from '../../../config/consta
 import { textureMap } from '../../../config/maps'
 
 ///////////////////////////////////////////////////////////////////////////
+// Forest tiles
+const ground = textureMap.forestFloor
+const plant = textureMap.forestTree
+const rock = textureMap.forestRock
+
+///////////////////////////////////////////////////////////////////////////
 // map tile styles
 
 const width = 20
 const height = 10
-const probArray = Array(10).fill(textureMap.forestFloor)
-    .concat(Array(5).fill(textureMap.forestTree))
-    .concat(Array(1).fill(textureMap.forestRock))
+const probArray = Array(10).fill(ground)
+    .concat(Array(3).fill(plant))
+    .concat(Array(1).fill(rock))
 
 export const tiles = createGround(width, height, probArray)
 

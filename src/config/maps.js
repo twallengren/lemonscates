@@ -57,6 +57,6 @@ export const interactionMap = {
 
     // weight interactions
     // keep in form 20x
-    addWeight: 200
+    addWeight: 200,
 
 }

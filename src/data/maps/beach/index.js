@@ -3,13 +3,19 @@ import { tileToCollisionMap, tileToInteractionMap } from '../../../config/consta
 import { textureMap } from '../../../config/maps'
 
 ///////////////////////////////////////////////////////////////////////////
+// Beach tiles
+const ground = textureMap.grass
+const drain = textureMap.healthDrain
+const source = textureMap.healthSource
+
+///////////////////////////////////////////////////////////////////////////
 // map tile styles
 
 const width = 20
 const height = 10
-const probArray = Array(10).fill(textureMap.grass)
-    .concat(Array(5).fill(textureMap.healthDrain))
-    .concat(Array(5).fill(textureMap.healthSource))
+const probArray = Array(10).fill(ground)
+    .concat(Array(5).fill(drain))
+    .concat(Array(5).fill(source))
 
 export const tiles = createGround(width, height, probArray)
 
