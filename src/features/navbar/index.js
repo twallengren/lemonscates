@@ -23,7 +23,7 @@ class NavBar extends Component {
                 style={{
                     color: 'white',
                     display: 'flex',
-                    justifyContent: 'space-between',
+                    justifyContent: 'space-around',
                     alignItems: 'center',
                 }}>
                 <Link to="/">
