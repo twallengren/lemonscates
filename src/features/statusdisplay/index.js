@@ -27,6 +27,7 @@ class StatusDisplay extends Component {
                     flexDirection: 'column',
                     justifyContent: 'center',
                     alignItems: 'center',
+                    width: '25vw',
                 }}>
                 <div>HEALTH: {this.props.health}</div>
                 <div>CARRY WEIGHT: {this.props.carryweight}</div>

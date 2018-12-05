@@ -27,6 +27,7 @@ class MissionDisplay extends Component {
                     flexDirection: 'column',
                     justifyContent: 'center',
                     alignItems: 'center',
+                    width: '25vw',
                 }}>
                 <div>MISSION: {this.props.mission}</div>
                 <div>DESCRIPTION: {this.props.description}</div>
