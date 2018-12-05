@@ -38,6 +38,8 @@ for (var count = 0; count < Math.floor(constants.window_size / 2); count++) {
 
 }
 
+tilesStart[10][10] = textureMap.startTestMission
+
 export const tiles = Array.from(tilesStart)
 
 ///////////////////////////////////////////////////////////////////////////

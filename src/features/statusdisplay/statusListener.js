@@ -80,6 +80,7 @@ export default function statusListener(StatusDisplay) {
 
             default:
                 attemptInteraction()
+                return
         }
     }
 

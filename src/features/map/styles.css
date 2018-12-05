@@ -33,6 +33,10 @@
     background-color: brown;
 }
 
+.startTestMission {
+    background-color: yellow;
+}
+
 .desertFloor {
     background-image: url('/tiles/desert.jpg');
     background-size: contain;

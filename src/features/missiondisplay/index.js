@@ -29,7 +29,7 @@ class MissionDisplay extends Component {
                     alignItems: 'center',
                     width: '25vw',
                 }}>
-                <div>MISSION: {this.props.mission}</div>
+                <div>MISSION: {this.props.name}</div>
                 <div>DESCRIPTION: {this.props.description}</div>
             </div>
 

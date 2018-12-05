@@ -20,6 +20,7 @@ export const constants = {
     ADD_TILES: 'ADD_TILES',
     CUT_TREE: 'CUT_TREE',
     CHANGE_WEIGHT: 'CHANGE_WEIGHT',
+    CHANGE_MISSION: 'CHANGE_MISSION',
     keydown: 'keydown',
     left_arrow: 37,
     up_arrow: 38,
@@ -44,6 +45,7 @@ tileCollisionMap[textureMap.rock] = collisionMap.collision
 tileCollisionMap[textureMap.healthDrain] = collisionMap.noCollision
 tileCollisionMap[textureMap.healthSource] = collisionMap.noCollision
 tileCollisionMap[textureMap.genericBrush] = collisionMap.noCollision
+tileCollisionMap[textureMap.startTestMission] = collisionMap.noCollision
 
 // map desert tile sprites to collision/no collision
 tileCollisionMap[textureMap.desertFloor] = collisionMap.noCollision
@@ -78,6 +80,7 @@ tileInteractionMap[textureMap.rock] = interactionMap.noInteraction
 tileInteractionMap[textureMap.healthDrain] = interactionMap.healthDrain
 tileInteractionMap[textureMap.healthSource] = interactionMap.healthSource
 tileInteractionMap[textureMap.genericBrush] = interactionMap.addWeight
+tileInteractionMap[textureMap.startTestMission] = interactionMap.startTestMission
 
 // map desert tile sprites to interaction/no interaction
 tileInteractionMap[textureMap.desertFloor] = interactionMap.noInteraction
@@ -170,7 +173,7 @@ cutInteractionMap[textureMap.snowBrush] = interactionMap.noInteraction
 export const cutToInteractionMap = Object.create(cutInteractionMap)
 
 /////////////////////////////////////////////////////////////////////////////
-// cut interaction map
+// walk to texture map (after interaction)
 // this is where we define how the texture map changes when interactive tile sprites are walked on
 var walkInteractionTextureMap = {}
 
@@ -178,6 +181,7 @@ var walkInteractionTextureMap = {}
 walkInteractionTextureMap[textureMap.healthDrain] = textureMap.grass
 walkInteractionTextureMap[textureMap.healthSource] = textureMap.grass
 walkInteractionTextureMap[textureMap.genericBrush] = textureMap.grass
+walkInteractionTextureMap[textureMap.startTestMission] = textureMap.grass
 
 // map desert tile sprites
 walkInteractionTextureMap[textureMap.desertBrush] = textureMap.desertFloor

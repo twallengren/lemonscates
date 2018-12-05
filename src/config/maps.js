@@ -12,6 +12,7 @@ export const textureMap = {
     healthDrain: 104,
     healthSource: 105,
     genericBrush: 106, // cut down tree
+    startTestMission: 107,
 
     // desert tile sprite types
     // keep in form 20x
@@ -58,5 +59,18 @@ export const interactionMap = {
     // weight interactions
     // keep in form 20x
     addWeight: 200,
+
+    // mission interactions
+    // keep in form 30x
+    startTestMission: 300,
+
+}
+
+// mission IDs
+export const missionIDMap = {
+
+    // test missions
+    // keep in form 10x
+    testMissionOne: 100,
 
 }
