@@ -14,6 +14,7 @@ import { constants } from '../../config/constants'
 export default function handleMovement(player) {
 
     function getNewPosition(oldPos, direction) {
+
         switch (direction) {
             case constants.WEST:
                 return [oldPos[0] - constants.SPRITE_SIZE, oldPos[1]]

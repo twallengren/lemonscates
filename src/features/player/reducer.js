@@ -2,7 +2,7 @@ import { constants } from '../../config/constants'
 
 const initialState = {
 
-    position: [0, 0],
+    position: [constants.SPRITE_SIZE * 5, constants.SPRITE_SIZE * 5],
     spriteLocation: '0px 0px',
     direction: 'EAST',
     walkIndex: 0,

@@ -42,20 +42,29 @@ function MapRow(props) {
     </div>
 }
 
+function getLocalTiles(props) {
+
+    const rowInd = props.position[1] / constants.SPRITE_SIZE
+    const colInd = props.position[0] / constants.SPRITE_SIZE
+
+    return props.tiles.slice(Math.max(rowInd - Math.floor(constants.window_size / 2), 0), Math.min(rowInd + Math.floor(constants.window_size / 2) + 1, constants.SPRITE_SIZE * props.tiles.length)).map(row => row.filter((element, index) => { return ((index >= Math.max(colInd - Math.floor(constants.window_size / 2), 0)) && (index <= Math.min(colInd + Math.floor(constants.window_size / 2), constants.SPRITE_SIZE * props.tiles[0].length))) }))
+
+}
+
 function Map(props) {
     return (
         <div
             style={{
                 position: 'relative',
-                top: '0px',
-                left: '0px',
-                width: `${constants.SPRITE_SIZE * props.tiles[0].length}px`,
-                height: `${constants.SPRITE_SIZE * props.tiles.length}px`,
+                top: `0px`,
+                left: `0px`,
+                width: `${constants.SPRITE_SIZE * constants.window_size}px`,
+                height: `${constants.SPRITE_SIZE * constants.window_size}px`,
                 border: '4px solid white',
             }}
         >
             {
-                props.tiles.map(row => <MapRow tiles={row} />)
+                getLocalTiles(props).map(row => <MapRow tiles={row} />)
             }
         </div>
     )
@@ -63,7 +72,8 @@ function Map(props) {
 
 function mapStateToProps(state) {
     return {
-        tiles: state.map.tiles
+        tiles: state.map.tiles,
+        position: state.player.position,
     }
 }
 

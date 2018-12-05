@@ -1,5 +1,5 @@
 import { createGround } from '../../../config/utils'
-import { tileToCollisionMap, tileToInteractionMap } from '../../../config/constants'
+import { constants, tileToCollisionMap, tileToInteractionMap } from '../../../config/constants'
 import { textureMap } from '../../../config/maps'
 
 ///////////////////////////////////////////////////////////////////////////
@@ -11,13 +11,34 @@ const rock = textureMap.rock
 ///////////////////////////////////////////////////////////////////////////
 // map tile styles
 
-const width = 20
-const height = 10
+const width = 100
+const height = 100
 const probArray = Array(10).fill(ground)
     .concat(Array(3).fill(plant))
     .concat(Array(1).fill(rock))
 
-export const tiles = createGround(width, height, probArray)
+const rockWall = Array(width + Math.floor(constants.window_size / 2)).fill(rock)
+
+var tilesStart = createGround(width, height, probArray).map(row => {
+    for (var count = 0; count < Math.floor(constants.window_size / 2); count++) {
+
+        row.push(rock)
+        row.unshift(rock)
+
+    }
+
+    return row
+
+})
+
+for (var count = 0; count < Math.floor(constants.window_size / 2); count++) {
+
+    tilesStart.push(rockWall)
+    tilesStart.unshift(rockWall)
+
+}
+
+export const tiles = Array.from(tilesStart)
 
 ///////////////////////////////////////////////////////////////////////////
 // map tile collision detection

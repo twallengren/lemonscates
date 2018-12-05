@@ -20,8 +20,8 @@ function Player(props) {
         <div
             style={{
                 position: 'absolute',
-                top: props.position[1],
-                left: props.position[0],
+                top: constants.SPRITE_SIZE * Math.floor(constants.window_size / 2),
+                left: constants.SPRITE_SIZE * Math.floor(constants.window_size / 2),
                 backgroundImage: `url('${walkSprite}')`,
                 backgroundPosition: props.spriteLocation,
                 width: `${constants.SPRITE_SIZE}px`,
