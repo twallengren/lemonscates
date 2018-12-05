@@ -11,8 +11,10 @@ import React from 'react'
 import Map from '../map'
 import Player from '../player'
 import StatusDisplay from '../statusdisplay'
+import NavBar from '../navbar'
 
 import { tiles, collision, ontile } from '../../data/maps/lemonscates'
+import { constants } from '../../config/constants'
 import store from '../../config/store'
 
 function MainWorld(props) {
@@ -27,17 +29,23 @@ function MainWorld(props) {
 
     return (
 
-        <div // Define MainWorld position and boundaries
-            style={{
-                position: 'relative',
-                width: `800px`,
-                height: `400px`,
-                margin: '20px auto',
-            }}
-        >
-            {/* Drop game map and player component in MainWorld */}
-            <Map />
-            <Player />
+        <div className="world">
+
+            <NavBar />
+
+            <div // Define BeachWorld position and boundaries
+                style={{
+                    position: 'relative',
+                    width: `${constants.SPRITE_SIZE * constants.window_size}px`,
+                    height: `${constants.SPRITE_SIZE * constants.window_size}px`,
+                    margin: '20px auto',
+                }}
+            >
+                {/* Drop game map and player component in BeachWorld */}
+                <Map />
+                <Player />
+            </div>
+
             <StatusDisplay />
 
         </div>

@@ -15,7 +15,8 @@ const rock = textureMap.rock
 const width = 100
 const height = 100
 const probArray = Array(10).fill(ground)
-    .concat(Array(3).fill(drain))
+    .concat(Array(1).fill(drain))
+    .concat(Array(1).fill(source))
     .concat(Array(1).fill(rock))
 
 const rockWall = Array(width + Math.floor(constants.window_size / 2)).fill(rock)
