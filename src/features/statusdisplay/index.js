@@ -3,7 +3,7 @@
 Usage
 <StatusDisplay />
 
-Main StatusDisplay.js component - contains game world
+Main StatusDisplay.js component - contains status like health and carryweight
 
 */
 

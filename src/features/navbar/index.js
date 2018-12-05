@@ -25,6 +25,8 @@ class NavBar extends Component {
                     display: 'flex',
                     justifyContent: 'space-around',
                     alignItems: 'center',
+                    backgroundColor: 'grey',
+                    height: '50px',
                 }}>
                 <Link to="/">
                     <div className='links'>MAIN MENU</div>
