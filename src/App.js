@@ -12,6 +12,7 @@ import Routes from './Routes'
 import NavBar from './features/navbar'
 import StatusDisplay from './features/statusdisplay'
 import MissionDisplay from './features/missiondisplay'
+import InventoryBar from './features/inventorybar'
 
 class App extends Component {
   render() {
@@ -27,6 +28,7 @@ class App extends Component {
           <Routes />
           <MissionDisplay />
         </div>
+        <InventoryBar />
       </div>
 
     );
