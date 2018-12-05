@@ -32,7 +32,7 @@ class NavBar extends Component {
                     <div className='links'>MAIN MENU</div>
                 </Link>
                 <Link to="/lemonscates">
-                    <div className='links'>CENTRAL CITY</div>
+                    <div className='links'>LEMONSCATES</div>
                 </Link>
                 <Link to="/forest">
                     <div className='links'>FOREST WORLD</div>
