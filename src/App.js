@@ -11,6 +11,7 @@ import React, { Component } from 'react'
 import Routes from './Routes'
 import NavBar from './features/navbar'
 import StatusDisplay from './features/statusdisplay'
+import MissionDisplay from './features/missiondisplay'
 
 class App extends Component {
   render() {
@@ -18,7 +19,13 @@ class App extends Component {
 
       <div> {/* Div to hold game world component */}
         <NavBar />
-        <Routes />
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-around'
+        }}>
+          <Routes />
+          <MissionDisplay />
+        </div>
         <StatusDisplay />
       </div>
 
