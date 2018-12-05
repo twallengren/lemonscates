@@ -17,7 +17,7 @@ class App extends Component {
   render() {
     return (
 
-      <div> {/* Div to hold game world component */}
+      <div>
         <NavBar />
         <div style={{
           display: 'flex',
