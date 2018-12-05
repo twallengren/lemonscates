@@ -29,6 +29,9 @@ class InventoryBar extends Component {
                     alignItems: 'center',
                     width: '25vw',
                 }}>
+
+                YOU ARE HOLDING NOTHING!!!
+
             </div>
 
         );
