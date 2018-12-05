@@ -10,8 +10,6 @@ WinterWorld component - contains the game map and the player
 import React from 'react'
 import Map from '../map'
 import Player from '../player'
-import StatusDisplay from '../statusdisplay'
-import NavBar from '../navbar'
 
 import { tiles, collision, ontile } from '../../data/maps/winter'
 import { constants } from '../../config/constants'
@@ -31,8 +29,6 @@ function WinterWorld(props) {
 
         <div className="world">
 
-            <NavBar />
-
             <div // Define BeachWorld position and boundaries
                 style={{
                     position: 'relative',
@@ -45,8 +41,6 @@ function WinterWorld(props) {
                 <Map />
                 <Player />
             </div>
-
-            <StatusDisplay />
 
         </div>
 

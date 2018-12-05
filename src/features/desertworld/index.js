@@ -10,8 +10,6 @@ DesertWorld component - contains the game map and the player
 import React from 'react'
 import Map from '../map'
 import Player from '../player'
-import StatusDisplay from '../statusdisplay'
-import NavBar from '../navbar'
 
 import { tiles, collision, ontile } from '../../data/maps/desert'
 import { constants } from '../../config/constants'
@@ -31,8 +29,6 @@ function DesertWorld(props) {
 
         <div className="world">
 
-            <NavBar />
-
             <div // Define BeachWorld position and boundaries
                 style={{
                     position: 'relative',
@@ -45,8 +41,6 @@ function DesertWorld(props) {
                 <Map />
                 <Player />
             </div>
-
-            <StatusDisplay />
 
         </div>
 
