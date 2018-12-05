@@ -19,7 +19,7 @@ const probArray = Array(10).fill(ground)
     .concat(Array(1).fill(source))
     .concat(Array(1).fill(rock))
 
-const rockWall = Array(width + Math.floor(constants.window_size / 2)).fill(rock)
+const rockWall = Array(width + constants.window_size - 1).fill(rock)
 
 var tilesStart = createGround(width, height, probArray).map(row => {
     for (var count = 0; count < Math.floor(constants.window_size / 2); count++) {
