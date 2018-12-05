@@ -23,10 +23,10 @@ class App extends Component {
           display: 'flex',
           justifyContent: 'space-around'
         }}>
+          <StatusDisplay />
           <Routes />
           <MissionDisplay />
         </div>
-        <StatusDisplay />
       </div>
 
     );
