@@ -64,6 +64,10 @@ export const interactionMap = {
     // keep in form 30x
     startTestMission: 300,
 
+    // inventory interactions
+    // keep in form 40x
+    addChoppedWood: 400,
+
 }
 
 // mission IDs

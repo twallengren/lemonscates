@@ -6,6 +6,7 @@ const initialState = {
     // keep id in form 10x
     wood: {
         id: 100,
+        name: 'Chopped Wood',
         weight: 10,
         quantity: 0,
     }
@@ -15,6 +16,12 @@ const initialState = {
 const inventoryReducer = (state = initialState, action) => {
 
     switch (action.type) {
+
+        case constants.ADD_WOOD:
+
+            return {
+                ...action.payload
+            }
 
         default:
             return {

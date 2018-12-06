@@ -55,7 +55,7 @@ export default function statusListener(StatusDisplay) {
 
                 return
 
-            case interactionMap.addWeight:
+            case interactionMap.addChoppedWood:
 
                 store.dispatch({
                     type: constants.CHANGE_WEIGHT,

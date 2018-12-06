@@ -21,6 +21,7 @@ export const constants = {
     CUT_TREE: 'CUT_TREE',
     CHANGE_WEIGHT: 'CHANGE_WEIGHT',
     CHANGE_MISSION: 'CHANGE_MISSION',
+    ADD_WOOD: 'ADD_WOOD',
     keydown: 'keydown',
     left_arrow: 37,
     up_arrow: 38,
@@ -79,26 +80,26 @@ tileInteractionMap[textureMap.treasureChest] = interactionMap.noInteraction
 tileInteractionMap[textureMap.rock] = interactionMap.noInteraction
 tileInteractionMap[textureMap.healthDrain] = interactionMap.healthDrain
 tileInteractionMap[textureMap.healthSource] = interactionMap.healthSource
-tileInteractionMap[textureMap.genericBrush] = interactionMap.addWeight
+tileInteractionMap[textureMap.genericBrush] = interactionMap.addChoppedWood
 tileInteractionMap[textureMap.startTestMission] = interactionMap.startTestMission
 
 // map desert tile sprites to interaction/no interaction
 tileInteractionMap[textureMap.desertFloor] = interactionMap.noInteraction
 tileInteractionMap[textureMap.desertPlant] = interactionMap.noInteraction
 tileInteractionMap[textureMap.desertRock] = interactionMap.noInteraction
-tileInteractionMap[textureMap.desertBrush] = interactionMap.addWeight
+tileInteractionMap[textureMap.desertBrush] = interactionMap.addChoppedWood
 
 // map forest tile sprites to interaction/no interaction
 tileInteractionMap[textureMap.forestFloor] = interactionMap.noInteraction
 tileInteractionMap[textureMap.forestTree] = interactionMap.noInteraction
 tileInteractionMap[textureMap.forestRock] = interactionMap.noInteraction
-tileInteractionMap[textureMap.forestBrush] = interactionMap.addWeight
+tileInteractionMap[textureMap.forestBrush] = interactionMap.addChoppedWood
 
 // map snow tile sprites to interaction/no interaction
 tileInteractionMap[textureMap.snowFloor] = interactionMap.noInteraction
 tileInteractionMap[textureMap.snowTree] = interactionMap.noInteraction
 tileInteractionMap[textureMap.snowRock] = interactionMap.noInteraction
-tileInteractionMap[textureMap.snowBrush] = interactionMap.addWeight
+tileInteractionMap[textureMap.snowBrush] = interactionMap.addChoppedWood
 
 export const tileToInteractionMap = Object.create(tileInteractionMap)
 
@@ -155,19 +156,19 @@ export const cutToCollisionMap = Object.create(cutCollisionMap)
 var cutInteractionMap = {}
 
 // map generic tile sprites
-cutInteractionMap[textureMap.tree] = interactionMap.addWeight
+cutInteractionMap[textureMap.tree] = interactionMap.addChoppedWood
 cutInteractionMap[textureMap.genericBrush] = interactionMap.noInteraction
 
 // map desert tile sprites
-cutInteractionMap[textureMap.desertPlant] = interactionMap.addWeight
+cutInteractionMap[textureMap.desertPlant] = interactionMap.addChoppedWood
 cutInteractionMap[textureMap.desertBrush] = interactionMap.noInteraction
 
 // map forest tile sprites
-cutInteractionMap[textureMap.forestTree] = interactionMap.addWeight
+cutInteractionMap[textureMap.forestTree] = interactionMap.addChoppedWood
 cutInteractionMap[textureMap.forestBrush] = interactionMap.noInteraction
 
 // map snow tile sprites
-cutInteractionMap[textureMap.snowTree] = interactionMap.addWeight
+cutInteractionMap[textureMap.snowTree] = interactionMap.addChoppedWood
 cutInteractionMap[textureMap.snowBrush] = interactionMap.noInteraction
 
 export const cutToInteractionMap = Object.create(cutInteractionMap)
