@@ -1,10 +1,14 @@
 import { constants } from '../../config/constants'
+import { interactionMap } from '../../config/maps'
 
 const initialState = {
 
-    id: 0,
+    id: null,
     name: 'None',
     description: 'You are free to frolic.',
+    finalInteraction: null,
+    stateToTest: null,
+    missionComplete: null,
 
 }
 

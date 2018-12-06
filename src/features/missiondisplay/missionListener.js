@@ -25,6 +25,7 @@ export default function missionListener(MissionDisplay) {
 
         const pos = store.getState().player.position
         const interactions = store.getState().map.ontile
+        const mission = store.getState().mission
 
         switch (observeInteraction(pos, interactions)) {
 
@@ -39,11 +40,32 @@ export default function missionListener(MissionDisplay) {
                     payload: {
                         id: missions.testMissionOne.id,
                         name: missions.testMissionOne.name,
-                        description: missions.testMissionOne.description
+                        description: missions.testMissionOne.description,
+                        finalInteraction: missions.testMissionOne.finalInteraction,
+                        stateToTest: missions.testMissionOne.stateToTest,
+                        missionComplete: missions.testMissionOne.missionComplete,
                     }
                 })
 
                 return
+
+            case mission.finalInteraction:
+
+                if (mission.missionComplete(mission.stateToTest())) {
+
+                    store.dispatch({
+                        type: constants.CHANGE_MISSION,
+                        payload: {
+                            id: null,
+                            name: constants.NONE,
+                            description: constants.NONE,
+                            finalInteraction: null,
+                            stateToTest: null,
+                            missionComplete: null,
+                        }
+                    })
+
+                }
 
             default:
 

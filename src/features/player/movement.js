@@ -119,7 +119,7 @@ export default function handleMovement(player) {
                 return attemptMove(constants.SOUTH)
 
             default:
-                console.log(e.keyCode)
+                return
         }
     }
 
