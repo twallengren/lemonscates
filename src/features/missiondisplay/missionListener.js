@@ -42,7 +42,6 @@ export default function missionListener(MissionDisplay) {
                         name: missions.testMissionOne.name,
                         description: missions.testMissionOne.description,
                         finalInteraction: missions.testMissionOne.finalInteraction,
-                        stateToTest: missions.testMissionOne.stateToTest,
                         missionComplete: missions.testMissionOne.missionComplete,
                     }
                 })
@@ -51,7 +50,7 @@ export default function missionListener(MissionDisplay) {
 
             case mission.finalInteraction:
 
-                if (mission.missionComplete(mission.stateToTest())) {
+                if (mission.missionComplete()) {
 
                     store.dispatch({
                         type: constants.CHANGE_MISSION,
@@ -60,12 +59,13 @@ export default function missionListener(MissionDisplay) {
                             name: constants.NONE,
                             description: constants.NONE,
                             finalInteraction: null,
-                            stateToTest: null,
                             missionComplete: null,
                         }
                     })
 
                 }
+
+                return
 
             default:
 

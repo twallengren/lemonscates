@@ -4,7 +4,7 @@ const initialState = {
 
     position: [constants.SPRITE_SIZE * 5, constants.SPRITE_SIZE * 5],
     spriteLocation: '0px 0px',
-    direction: 'EAST',
+    direction: constants.SOUTH,
     walkIndex: 0,
     health: 100,
 

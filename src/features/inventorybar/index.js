@@ -43,7 +43,7 @@ class InventoryBar extends Component {
                 style={{
                     color: 'white',
                     display: 'flex',
-                    justifyContent: 'center',
+                    justifyContent: 'space-around',
                     alignItems: 'center',
                 }}>
 

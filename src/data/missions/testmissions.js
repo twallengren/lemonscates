@@ -11,8 +11,7 @@ export const missions = {
         name: "Test Mission One",
         description: "Collect 10 piles of wood from Lemonscates",
         finalInteraction: interactionMap.addChoppedWood,
-        stateToTest: () => { return store.getState().inventory.wood.quantity },
-        missionComplete: (quantity) => { return quantity + 1 === 10 },
+        missionComplete: () => { return store.getState().inventory.wood.quantity + 1 >= 10 },
     },
 
 }
