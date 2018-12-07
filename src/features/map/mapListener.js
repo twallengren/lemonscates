@@ -280,12 +280,6 @@ export default function mapListener(Map) {
 
                 return
 
-            case interactionMap.startTestMission:
-
-                toGround(rowIndex, columnIndex, tiles, interaction)
-
-                return
-
             default: // default interaction - none
 
                 return

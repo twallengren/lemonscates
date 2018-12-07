@@ -21,17 +21,13 @@ export default function missionListener(MissionDisplay) {
         return interactions[rowIndex][columnIndex]
     }
 
-    function attemptInteraction() {
+    function toggleMission() {
 
         const pos = store.getState().player.position
         const interactions = store.getState().map.ontile
-        const mission = store.getState().mission
+        const missionID = store.getState().mission.id
 
         switch (observeInteraction(pos, interactions)) {
-
-            case interactionMap.noInteraction:
-
-                return
 
             case interactionMap.startTestMission:
 
@@ -46,6 +42,47 @@ export default function missionListener(MissionDisplay) {
                         missionComplete: missions.testMissionOne.missionComplete,
                     }
                 })
+
+                return
+
+            default:
+
+                if (missionID === null) {
+
+                    return
+
+                } else {
+
+                    store.dispatch({
+                        type: constants.CHANGE_MISSION,
+                        payload: {
+                            id: null,
+                            name: null,
+                            description: null,
+                            finalInteraction: null,
+                            stateToTest: null,
+                            missionText: 'No mission active. You are free to frolic.',
+                            missionComplete: null,
+                        }
+                    })
+
+                    return
+
+                }
+
+        }
+
+    }
+
+    function attemptInteraction() {
+
+        const pos = store.getState().player.position
+        const interactions = store.getState().map.ontile
+        const mission = store.getState().mission
+
+        switch (observeInteraction(pos, interactions)) {
+
+            case interactionMap.noInteraction:
 
                 return
 
@@ -83,8 +120,16 @@ export default function missionListener(MissionDisplay) {
 
         switch (e.keyCode) {
 
+            case constants.s_key:
+
+                toggleMission()
+
+                return
+
             default:
+
                 attemptInteraction()
+
                 return
         }
     }

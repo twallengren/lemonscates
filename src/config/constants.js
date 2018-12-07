@@ -28,6 +28,7 @@ export const constants = {
     right_arrow: 39,
     down_arrow: 40,
     c_key: 67,
+    s_key: 83,
     t_key: 84,
     step_scale: 0.5,
     window_size: 11,
