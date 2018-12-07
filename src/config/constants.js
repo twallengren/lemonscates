@@ -21,6 +21,7 @@ export const constants = {
     CUT_TREE: 'CUT_TREE',
     CHANGE_WEIGHT: 'CHANGE_WEIGHT',
     CHANGE_MISSION: 'CHANGE_MISSION',
+    MISSION_COMPLETE: 'MISSION COMPLETE!',
     ADD_WOOD: 'ADD_WOOD',
     CHANGE_INFO: 'CHANGE_INFO',
     S_TO_START: "Press the 's' key to start mission",

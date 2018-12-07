@@ -91,6 +91,10 @@ export const interactionMap = {
 // mission IDs
 export const missionIDMap = {
 
+    // misc
+    // 0 < x < 100
+    missionComplete: 1,
+
     // test missions
     // keep in form 10x
     testMissionOne: 100,

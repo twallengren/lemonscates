@@ -10,7 +10,7 @@ Wraps MissionDisplay in an event listener and updates redux state
 
 import store from '../../config/store'
 import { constants } from '../../config/constants'
-import { interactionMap } from '../../config/maps'
+import { interactionMap, missionIDMap } from '../../config/maps'
 import { missions } from '../../data/missions/testmissions'
 
 export default function missionListener(MissionDisplay) {
@@ -37,6 +37,7 @@ export default function missionListener(MissionDisplay) {
                         type: constants.CHANGE_MISSION,
                         payload: {
                             id: missions.testMissionOne.id,
+                            startingCoordinates: missions.testMissionOne.startingCoordinates,
                             name: missions.testMissionOne.name,
                             description: missions.testMissionOne.description,
                             missionText: missions.testMissionOne.missionText,
@@ -53,6 +54,7 @@ export default function missionListener(MissionDisplay) {
                         type: constants.CHANGE_MISSION,
                         payload: {
                             id: null,
+                            startingCoordinates: null,
                             name: null,
                             description: null,
                             finalInteraction: null,
@@ -78,6 +80,7 @@ export default function missionListener(MissionDisplay) {
                         type: constants.CHANGE_MISSION,
                         payload: {
                             id: null,
+                            startingCoordinates: null,
                             name: null,
                             description: null,
                             finalInteraction: null,
@@ -105,6 +108,24 @@ export default function missionListener(MissionDisplay) {
 
             case interactionMap.noInteraction:
 
+                if (mission.id === missionIDMap.missionComplete) {
+
+                    store.dispatch({
+                        type: constants.CHANGE_MISSION,
+                        payload: {
+                            id: null,
+                            startingCoordinates: null,
+                            name: null,
+                            description: null,
+                            finalInteraction: null,
+                            stateToTest: null,
+                            missionText: 'No mission active. You are free to frolic.',
+                            missionComplete: null,
+                        }
+                    })
+
+                }
+
                 return
 
             case mission.finalInteraction:
@@ -114,10 +135,11 @@ export default function missionListener(MissionDisplay) {
                     store.dispatch({
                         type: constants.CHANGE_MISSION,
                         payload: {
-                            id: null,
+                            id: missionIDMap.missionComplete,
+                            startingCoordinates: null,
                             name: constants.NONE,
                             description: constants.NONE,
-                            missionText: "MISSION COMPLETE!",
+                            missionText: constants.MISSION_COMPLETE,
                             finalInteraction: null,
                             missionComplete: null,
                         }

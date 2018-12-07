@@ -3,6 +3,7 @@ import { constants } from '../../config/constants'
 const initialState = {
 
     id: null,
+    startingCoordinates: null,
     name: null,
     description: null,
     finalInteraction: null,

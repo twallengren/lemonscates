@@ -8,11 +8,12 @@ export const missions = {
 
     testMissionOne: {
         id: missionIDMap.testMissionOne,
+        startingCoordinates: [10, 10],
         name: "Test Mission One",
         description: "Collect 10 chopped wood",
         missionText: "MISSION: Collect 10 chopped wood",
         finalInteraction: interactionMap.addChoppedWood,
-        missionComplete: () => { return store.getState().inventory.wood.quantity + 1 >= 10 },
+        missionComplete: () => { return store.getState().inventory.wood.quantity > 8 },
     },
 
 }

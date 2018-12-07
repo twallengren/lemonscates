@@ -12,6 +12,7 @@ import store from '../../config/store'
 import { constants, cutToBackgroundMap, cutToCollisionMap, cutToInteractionMap, walkToInteractionTextureMap } from '../../config/constants'
 import { textureMap, interactionMap } from '../../config/maps'
 import history from '../../config/history'
+import { missions } from '../../data/missions/testmissions'
 
 export default function mapListener(Map) {
 
@@ -252,11 +253,27 @@ export default function mapListener(Map) {
         const pos = store.getState().player.position
         const interaction = store.getState().map.ontile
         const tiles = store.getState().map.tiles
+        const mission = store.getState().mission
 
         const rowIndex = pos[1] / constants.SPRITE_SIZE
         const columnIndex = pos[0] / constants.SPRITE_SIZE
 
         switch (interaction[rowIndex][columnIndex]) {
+
+            case mission.finalInteraction:
+
+                if (mission.missionComplete()) {
+
+                    toGround(mission.startingCoordinates[0], mission.startingCoordinates[1], tiles, interaction)
+                    toGround(rowIndex, columnIndex, tiles, interaction)
+
+                } else {
+
+                    toGround(rowIndex, columnIndex, tiles, interaction)
+
+                }
+
+                return
 
             case interactionMap.noInteraction:
 

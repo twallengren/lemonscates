@@ -1,6 +1,7 @@
 import { createGround } from '../../../config/utils'
 import { constants, tileToCollisionMap, tileToInteractionMap } from '../../../config/constants'
 import { textureMap } from '../../../config/maps'
+import { missions } from '../../missions/testmissions'
 
 ///////////////////////////////////////////////////////////////////////////
 // Generic tiles
@@ -38,7 +39,7 @@ for (var count = 0; count < Math.floor(constants.window_size / 2); count++) {
 
 }
 
-tilesStart[10][10] = textureMap.startTestMission
+tilesStart[missions.testMissionOne.startingCoordinates[1]][missions.testMissionOne.startingCoordinates[0]] = textureMap.startTestMission
 tilesStart[11][11] = textureMap.toBeach
 tilesStart[12][12] = textureMap.toDesert
 tilesStart[13][13] = textureMap.toForest
