@@ -35,6 +35,14 @@ export const textureMap = {
     snowRock: 402,
     snowBrush: 403, // cut down snow tree
 
+    // transportation tile sprites
+    // keep in form 50x
+    toLemonscates: 500,
+    toForest: 501,
+    toDesert: 502,
+    toWinter: 503,
+    toBeach: 504,
+
 }
 
 // collision map object - helps with syntax
@@ -67,6 +75,16 @@ export const interactionMap = {
     // inventory interactions
     // keep in form 40x
     addChoppedWood: 400,
+
+    // transportation interactions
+    // keep in form 50x
+    toLemonscates: 500,
+    toForest: 501,
+    toDesert: 502,
+    toWinter: 503,
+    toBeach: 504,
+
+
 
 }
 

@@ -34,7 +34,7 @@
 }
 
 .startTestMission {
-    background-color: yellow;
+    background-color: yellowgreen;
 }
 
 .desertFloor {
@@ -99,4 +99,24 @@
 
 .snowBrush {
     background-color: brown;
+}
+
+.toLemonscates {
+    background-color: gray;
+}
+
+.toBeach {
+    background-color: yellow;
+}
+
+.toForest {
+    background-color: green;
+}
+
+.toDesert {
+    background-color: red;
+}
+
+.toWinter {
+    background-color: white;
 }

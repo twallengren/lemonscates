@@ -28,6 +28,7 @@ export const constants = {
     right_arrow: 39,
     down_arrow: 40,
     c_key: 67,
+    t_key: 84,
     step_scale: 0.5,
     window_size: 11,
 
@@ -66,6 +67,13 @@ tileCollisionMap[textureMap.snowTree] = collisionMap.collision
 tileCollisionMap[textureMap.snowRock] = collisionMap.collision
 tileCollisionMap[textureMap.snowBrush] = collisionMap.noCollision
 
+// map transportation tile sprites to collision/no collision
+tileCollisionMap[textureMap.toLemonscates] = collisionMap.noCollision
+tileCollisionMap[textureMap.toBeach] = collisionMap.noCollision
+tileCollisionMap[textureMap.toDesert] = collisionMap.noCollision
+tileCollisionMap[textureMap.toForest] = collisionMap.noCollision
+tileCollisionMap[textureMap.toWinter] = collisionMap.noCollision
+
 export const tileToCollisionMap = Object.create(tileCollisionMap)
 
 /////////////////////////////////////////////////////////////////////////////
@@ -100,6 +108,14 @@ tileInteractionMap[textureMap.snowFloor] = interactionMap.noInteraction
 tileInteractionMap[textureMap.snowTree] = interactionMap.noInteraction
 tileInteractionMap[textureMap.snowRock] = interactionMap.noInteraction
 tileInteractionMap[textureMap.snowBrush] = interactionMap.addChoppedWood
+
+// map transportation tile sprites to interaction
+tileInteractionMap[textureMap.toLemonscates] = interactionMap.toLemonscates
+tileInteractionMap[textureMap.toBeach] = interactionMap.toBeach
+tileInteractionMap[textureMap.toDesert] = interactionMap.toDesert
+tileInteractionMap[textureMap.toForest] = interactionMap.toForest
+tileInteractionMap[textureMap.toWinter] = interactionMap.toWinter
+
 
 export const tileToInteractionMap = Object.create(tileInteractionMap)
 

@@ -1,7 +1,7 @@
 /*
 
 Usage
-mapListener(StatusDisplay)
+mapListener(Map)
 
 Function to update map based on interaction tiles
 Wraps map in an event listener and updates redux state
@@ -11,8 +11,9 @@ Wraps map in an event listener and updates redux state
 import store from '../../config/store'
 import { constants, cutToBackgroundMap, cutToCollisionMap, cutToInteractionMap, walkToInteractionTextureMap } from '../../config/constants'
 import { textureMap, interactionMap } from '../../config/maps'
+import history from '../../config/history'
 
-export default function mapListener(StatusDisplay) {
+export default function mapListener(Map) {
 
     const cutablePlants = [
         textureMap.tree,
@@ -174,6 +175,78 @@ export default function mapListener(StatusDisplay) {
 
     }
 
+    function travelTo() {
+
+        const pos = store.getState().player.position
+        const interaction = store.getState().map.ontile
+
+        const rowIndex = pos[1] / constants.SPRITE_SIZE
+        const columnIndex = pos[0] / constants.SPRITE_SIZE
+
+        switch (interaction[rowIndex][columnIndex]) {
+
+            case interactionMap.noInteraction:
+
+                return
+
+            case interactionMap.toBeach:
+
+                history.push('/beach')
+
+                return
+
+            case interactionMap.toDesert:
+
+                history.push('/desert')
+
+                return
+
+            case interactionMap.toForest:
+
+                history.push('/forest')
+
+                return
+
+            case interactionMap.toLemonscates:
+
+                history.push('/lemonscates')
+
+                return
+
+            case interactionMap.toWinter:
+
+                history.push('/winter')
+
+                return
+
+            default:
+
+                return
+
+        }
+
+    }
+
+    function toGround(rowIndex, columnIndex, tiles, interaction) {
+
+        let newTiles = Array.from(tiles)
+        let newInteraction = Array.from(interaction)
+
+        const tileCut = tiles[rowIndex][columnIndex]
+
+        newTiles[rowIndex][columnIndex] = walkToInteractionTextureMap[tileCut]
+        newInteraction[rowIndex][columnIndex] = interactionMap.noInteraction
+
+        store.dispatch({
+            type: constants.TO_GROUND,
+            payload: {
+                tiles: newTiles,
+                ontile: newInteraction
+            }
+        })
+
+    }
+
     function attemptInteraction() {
 
         const pos = store.getState().player.position
@@ -189,23 +262,25 @@ export default function mapListener(StatusDisplay) {
 
                 return
 
-            default: // default interaction - tile becomes ground after being stepped on 
+            case interactionMap.addChoppedWood:
 
-                let newTiles = Array.from(tiles)
-                let newInteraction = Array.from(interaction)
+                toGround(rowIndex, columnIndex, tiles, interaction)
 
-                const tileCut = tiles[rowIndex][columnIndex]
+                return
 
-                newTiles[rowIndex][columnIndex] = walkToInteractionTextureMap[tileCut]
-                newInteraction[rowIndex][columnIndex] = interactionMap.noInteraction
+            case interactionMap.healthDrain:
 
-                store.dispatch({
-                    type: constants.TO_GROUND,
-                    payload: {
-                        tiles: newTiles,
-                        ontile: newInteraction
-                    }
-                })
+                toGround(rowIndex, columnIndex, tiles, interaction)
+
+                return
+
+            case interactionMap.healthSource:
+
+                toGround(rowIndex, columnIndex, tiles, interaction)
+
+                return
+
+            default: // default interaction - none
 
                 return
         }
@@ -219,10 +294,22 @@ export default function mapListener(StatusDisplay) {
         switch (e.keyCode) {
 
             case constants.c_key:
+
                 cutDownTree()
 
+                return
+
+            case constants.t_key:
+
+                travelTo()
+
+                return
+
             default:
+
                 attemptInteraction()
+
+                return
         }
     }
 
@@ -230,5 +317,5 @@ export default function mapListener(StatusDisplay) {
         handleKeyDown(e)
     })
 
-    return StatusDisplay
+    return Map
 }
