@@ -27,7 +27,7 @@ class InventoryBar extends Component {
 
             return (
 
-                // Put each item from server in an item component
+                // Put each item in an Item component
                 <Item
                     name={this.props[key].name}
                     weight={this.props[key].weight}
