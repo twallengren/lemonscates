@@ -4,13 +4,15 @@ import mapReducer from '../features/map/reducer'
 import statusReducer from '../features/statusdisplay/reducer'
 import missionReducer from '../features/missiondisplay/reducer'
 import inventoryReducer from '../features/inventorybar/reducer'
+import infoReducer from '../features/infopanel/reducer'
 
 const rootReducer = combineReducers({
     player: playerReducer,
     map: mapReducer,
     status: statusReducer,
     mission: missionReducer,
-    inventory: inventoryReducer
+    inventory: inventoryReducer,
+    info: infoReducer,
 })
 
 const store = createStore(

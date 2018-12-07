@@ -13,6 +13,7 @@ import NavBar from './features/navbar'
 import StatusDisplay from './features/statusdisplay'
 import MissionDisplay from './features/missiondisplay'
 import InventoryBar from './features/inventorybar'
+import InfoPanel from './features/infopanel'
 
 class App extends Component {
   render() {
@@ -20,9 +21,10 @@ class App extends Component {
 
       <div>
         <NavBar />
+        <InfoPanel />
         <div style={{
           display: 'flex',
-          justifyContent: 'space-around'
+          justifyContent: 'space-around',
         }}>
           <StatusDisplay />
           <Routes />

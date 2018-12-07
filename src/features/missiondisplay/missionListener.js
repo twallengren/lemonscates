@@ -31,19 +31,40 @@ export default function missionListener(MissionDisplay) {
 
             case interactionMap.startTestMission:
 
-                store.dispatch({
-                    type: constants.CHANGE_MISSION,
-                    payload: {
-                        id: missions.testMissionOne.id,
-                        name: missions.testMissionOne.name,
-                        description: missions.testMissionOne.description,
-                        missionText: missions.testMissionOne.missionText,
-                        finalInteraction: missions.testMissionOne.finalInteraction,
-                        missionComplete: missions.testMissionOne.missionComplete,
-                    }
-                })
+                if (missionID === null) {
 
-                return
+                    store.dispatch({
+                        type: constants.CHANGE_MISSION,
+                        payload: {
+                            id: missions.testMissionOne.id,
+                            name: missions.testMissionOne.name,
+                            description: missions.testMissionOne.description,
+                            missionText: missions.testMissionOne.missionText,
+                            finalInteraction: missions.testMissionOne.finalInteraction,
+                            missionComplete: missions.testMissionOne.missionComplete,
+                        }
+                    })
+
+                    return
+
+                } else {
+
+                    store.dispatch({
+                        type: constants.CHANGE_MISSION,
+                        payload: {
+                            id: null,
+                            name: null,
+                            description: null,
+                            finalInteraction: null,
+                            stateToTest: null,
+                            missionText: 'No mission active. You are free to frolic.',
+                            missionComplete: null,
+                        }
+                    })
+
+                    return
+
+                }
 
             default:
 
