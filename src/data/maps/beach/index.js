@@ -40,6 +40,11 @@ for (var count = 0; count < Math.floor(constants.window_size / 2); count++) {
 
 }
 
+tilesStart[11][11] = textureMap.toLemonscates
+tilesStart[12][12] = textureMap.toDesert
+tilesStart[13][13] = textureMap.toForest
+tilesStart[14][14] = textureMap.toWinter
+
 export const tiles = Array.from(tilesStart)
 
 ///////////////////////////////////////////////////////////////////////////
