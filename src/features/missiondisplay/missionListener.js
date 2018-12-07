@@ -41,6 +41,7 @@ export default function missionListener(MissionDisplay) {
                         id: missions.testMissionOne.id,
                         name: missions.testMissionOne.name,
                         description: missions.testMissionOne.description,
+                        missionText: missions.testMissionOne.missionText,
                         finalInteraction: missions.testMissionOne.finalInteraction,
                         missionComplete: missions.testMissionOne.missionComplete,
                     }
@@ -58,6 +59,7 @@ export default function missionListener(MissionDisplay) {
                             id: null,
                             name: constants.NONE,
                             description: constants.NONE,
+                            missionText: "MISSION COMPLETE!",
                             finalInteraction: null,
                             missionComplete: null,
                         }
