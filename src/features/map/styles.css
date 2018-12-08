@@ -43,7 +43,6 @@
 }
 
 .desertPlant {
-    background-color: #B5866B;
     background-image: url('/tiles/desert-plant.png'),
         url('/tiles/desert.jpg');
     background-size: contain;

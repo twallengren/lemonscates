@@ -88,7 +88,7 @@ export const tileToCollisionMap = Object.create(tileCollisionMap)
 // this is where we define which tile sprites what interaction when walked on
 var tileInteractionMap = {}
 
-// map generic tile sprites to interaction/no interaction
+// map generic tile sprites to interaction
 tileInteractionMap[textureMap.grass] = interactionMap.noInteraction
 tileInteractionMap[textureMap.tree] = interactionMap.noInteraction
 tileInteractionMap[textureMap.treasureChest] = interactionMap.noInteraction
@@ -98,19 +98,19 @@ tileInteractionMap[textureMap.healthSource] = interactionMap.healthSource
 tileInteractionMap[textureMap.genericBrush] = interactionMap.addChoppedWood
 tileInteractionMap[textureMap.startTestMission] = interactionMap.startTestMission
 
-// map desert tile sprites to interaction/no interaction
+// map desert tile sprites to interaction
 tileInteractionMap[textureMap.desertFloor] = interactionMap.noInteraction
 tileInteractionMap[textureMap.desertPlant] = interactionMap.noInteraction
 tileInteractionMap[textureMap.desertRock] = interactionMap.noInteraction
 tileInteractionMap[textureMap.desertBrush] = interactionMap.addChoppedWood
 
-// map forest tile sprites to interaction/no interaction
+// map forest tile sprites to interaction
 tileInteractionMap[textureMap.forestFloor] = interactionMap.noInteraction
 tileInteractionMap[textureMap.forestTree] = interactionMap.noInteraction
 tileInteractionMap[textureMap.forestRock] = interactionMap.noInteraction
 tileInteractionMap[textureMap.forestBrush] = interactionMap.addChoppedWood
 
-// map snow tile sprites to interaction/no interaction
+// map snow tile sprites to interaction
 tileInteractionMap[textureMap.snowFloor] = interactionMap.noInteraction
 tileInteractionMap[textureMap.snowTree] = interactionMap.noInteraction
 tileInteractionMap[textureMap.snowRock] = interactionMap.noInteraction

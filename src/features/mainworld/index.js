@@ -29,7 +29,7 @@ function MainWorld(props) {
 
         <div className="world">
 
-            <div // Define BeachWorld position and boundaries
+            <div // Define MainWorld position and boundaries
                 style={{
                     position: 'relative',
                     width: `${constants.SPRITE_SIZE * constants.window_size}px`,
@@ -37,7 +37,7 @@ function MainWorld(props) {
                     margin: '20px auto',
                 }}
             >
-                {/* Drop game map and player component in BeachWorld */}
+                {/* Drop game map and player component in MainWorld */}
                 <Map />
                 <Player />
             </div>
