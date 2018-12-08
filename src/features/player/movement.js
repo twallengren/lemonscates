@@ -46,7 +46,7 @@ export default function handleMovement(player) {
 
     function getWalkIndex() {
         const walkIndex = store.getState().player.walkIndex
-        return walkIndex >= 7 ? 0 : walkIndex + 1
+        return walkIndex === 0 ? 7 : walkIndex - 1
     }
 
     function observeBoundaries(newPos, tiles) {
