@@ -18,7 +18,7 @@ class Menu extends Component {
                 style={{
                     position: 'relative',
                     width: '50vw',
-                    height: '100vh',
+                    height: '75vh',
                     margin: '0px',
                     backgroundColor: 'grey',
                     display: 'flex',

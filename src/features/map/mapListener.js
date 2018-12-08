@@ -12,7 +12,6 @@ import store from '../../config/store'
 import { constants, cutToBackgroundMap, cutToCollisionMap, cutToInteractionMap, walkToInteractionTextureMap } from '../../config/constants'
 import { textureMap, interactionMap } from '../../config/maps'
 import history from '../../config/history'
-import { missions } from '../../data/missions/testmissions'
 
 export default function mapListener(Map) {
 

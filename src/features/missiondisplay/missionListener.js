@@ -59,7 +59,7 @@ export default function missionListener(MissionDisplay) {
                             description: null,
                             finalInteraction: null,
                             stateToTest: null,
-                            missionText: 'No mission active. You are free to frolic.',
+                            missionText: constants.NO_ACTIVE_MISSION,
                             missionComplete: null,
                         }
                     })
@@ -85,7 +85,7 @@ export default function missionListener(MissionDisplay) {
                             description: null,
                             finalInteraction: null,
                             stateToTest: null,
-                            missionText: 'No mission active. You are free to frolic.',
+                            missionText: constants.NO_ACTIVE_MISSION,
                             missionComplete: null,
                         }
                     })
@@ -119,7 +119,7 @@ export default function missionListener(MissionDisplay) {
                             description: null,
                             finalInteraction: null,
                             stateToTest: null,
-                            missionText: 'No mission active. You are free to frolic.',
+                            missionText: constants.NO_ACTIVE_MISSION,
                             missionComplete: null,
                         }
                     })

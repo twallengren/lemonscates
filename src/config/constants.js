@@ -22,6 +22,7 @@ export const constants = {
     CHANGE_WEIGHT: 'CHANGE_WEIGHT',
     CHANGE_MISSION: 'CHANGE_MISSION',
     MISSION_COMPLETE: 'MISSION COMPLETE!',
+    NO_ACTIVE_MISSION: 'No mission active. You are free to frolic.',
     ADD_WOOD: 'ADD_WOOD',
     CHANGE_INFO: 'CHANGE_INFO',
     S_TO_START: "Press the 's' key to start mission",
@@ -35,8 +36,8 @@ export const constants = {
     c_key: 67,
     s_key: 83,
     t_key: 84,
-    step_scale: 0.5,
     window_size: 11,
+    BASE_URL: "http://localhost:3005",
 
 }
 
