@@ -260,8 +260,6 @@ export default function mapListener(Map) {
         var rowIndex = Math.round(pos[1] / constants.SPRITE_SIZE)
         var columnIndex = Math.floor(pos[0] / constants.SPRITE_SIZE)
 
-        console.log(_.invert(interactionMap)[interaction[rowIndex][columnIndex]])
-
         switch (interaction[rowIndex][columnIndex]) {
 
             case mission.finalInteraction:
@@ -269,10 +267,6 @@ export default function mapListener(Map) {
                 if (mission.missionComplete()) {
 
                     toGround(mission.startingCoordinates[0], mission.startingCoordinates[1], tiles, interaction)
-                    toGround(rowIndex, columnIndex, tiles, interaction)
-
-                } else {
-
                     toGround(rowIndex, columnIndex, tiles, interaction)
 
                 }

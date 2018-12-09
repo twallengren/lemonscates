@@ -206,6 +206,8 @@ export default function missionListener(MissionDisplay) {
             // current tile has same interaction type as mission's final interaction type
             case mission.finalInteraction:
 
+                console.log(mission.finalInteraction)
+
                 // if current redux state meets requirements for mission complete status
                 if (mission.missionComplete()) {
 
@@ -214,13 +216,13 @@ export default function missionListener(MissionDisplay) {
                         type: constants.CHANGE_MISSION,
                         payload: {
                             id: missionIDMap.missionComplete,
-                            startingCoordinates: null,
-                            endingCoordinates: null,
+                            startingCoordinates: mission.startingCoordinates,
+                            endingCoordinates: mission.endingCoordinates,
                             name: constants.NONE,
                             description: constants.NONE,
                             missionText: constants.MISSION_COMPLETE,
-                            finalInteraction: null,
-                            missionComplete: null,
+                            finalInteraction: mission.finalInteraction,
+                            missionComplete: mission.missionComplete,
                         }
                     })
 

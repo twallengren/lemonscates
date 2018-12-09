@@ -110,6 +110,36 @@ export default function infoListener(InfoDisplay) {
 
                 }
 
+            case interactionMap.stopTestMissionTwo:
+
+                if (missionID === null) {
+
+                    store.dispatch({
+                        type: constants.CHANGE_INFO,
+                        payload: {
+
+                            message: constants.CANNOT_START_MISSION
+
+                        }
+                    })
+
+                    return
+
+                } else {
+
+                    store.dispatch({
+                        type: constants.CHANGE_INFO,
+                        payload: {
+
+                            message: constants.MISSION_COMPLETE
+
+                        }
+                    })
+
+                    return
+
+                }
+
             case interactionMap.toBeach:
 
                 store.dispatch({

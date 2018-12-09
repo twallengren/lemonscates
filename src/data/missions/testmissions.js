@@ -24,10 +24,14 @@ export const missions = {
         endingCoordinates: [20, 20],
         name: "Test Mission Two",
         description: "Travel to the black square",
-        missionText: "MISSION: Travel to the other black square and press 's'",
+        missionText: "MISSION: Travel to the other black square",
         finalInteraction: interactionMap.stopTestMissionTwo,
         missionComplete: () => {
-            return store.getState().player.position.toString() === [20 * constants.SPRITE_SIZE, 20 * constants.SPRITE_SIZE].toString()
+            const pos = store.getState().player.position
+            const interactions = store.getState().map.ontile
+            const rowIndex = Math.round(pos[1] / constants.SPRITE_SIZE)
+            const columnIndex = Math.floor(pos[0] / constants.SPRITE_SIZE)
+            return interactions[rowIndex][columnIndex] === interactionMap.stopTestMissionTwo
         }
     },
 

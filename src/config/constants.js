@@ -28,6 +28,7 @@ export const constants = {
     S_TO_START: "Press the 's' key to start mission",
     S_TO_STOP: "Press the 's' key to stop mission (you do not need to be on this tile to stop the mission)",
     T_TO_TRAVEL: "Press the 't' key to travel",
+    CANNOT_START_MISSION: 'This tile is the end of a mission',
     keydown: 'keydown',
     left_arrow: 37,
     up_arrow: 38,
