@@ -206,8 +206,6 @@ export default function missionListener(MissionDisplay) {
             // current tile has same interaction type as mission's final interaction type
             case mission.finalInteraction:
 
-                console.log(mission.finalInteraction)
-
                 // if current redux state meets requirements for mission complete status
                 if (mission.missionComplete()) {
 

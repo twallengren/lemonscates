@@ -208,6 +208,7 @@ export const cutToInteractionMap = Object.create(cutInteractionMap)
 var walkInteractionTextureMap = {}
 
 // map generic tile sprites
+walkInteractionTextureMap[textureMap.grass] = textureMap.grass
 walkInteractionTextureMap[textureMap.healthDrain] = textureMap.grass
 walkInteractionTextureMap[textureMap.healthSource] = textureMap.grass
 walkInteractionTextureMap[textureMap.genericBrush] = textureMap.grass
