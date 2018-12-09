@@ -269,6 +269,10 @@ export default function mapListener(Map) {
                     toGround(mission.startingCoordinates[0], mission.startingCoordinates[1], tiles, interaction)
                     toGround(rowIndex, columnIndex, tiles, interaction)
 
+                } else if (mission.finalInteraction === interactionMap.addChoppedWood) {
+
+                    toGround(rowIndex, columnIndex, tiles, interaction)
+
                 }
 
                 return
