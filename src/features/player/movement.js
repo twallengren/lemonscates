@@ -17,13 +17,13 @@ export default function handleMovement(player) {
 
         switch (direction) {
             case constants.WEST:
-                return [oldPos[0] - constants.SPRITE_SIZE, oldPos[1]]
+                return [oldPos[0] - constants.SPRITE_SIZE / constants.steps_per_square, oldPos[1]]
             case constants.EAST:
-                return [oldPos[0] + constants.SPRITE_SIZE, oldPos[1]]
+                return [oldPos[0] + constants.SPRITE_SIZE / constants.steps_per_square, oldPos[1]]
             case constants.NORTH:
-                return [oldPos[0], oldPos[1] - constants.SPRITE_SIZE]
+                return [oldPos[0], oldPos[1] - constants.SPRITE_SIZE / constants.steps_per_square]
             case constants.SOUTH:
-                return [oldPos[0], oldPos[1] + constants.SPRITE_SIZE]
+                return [oldPos[0], oldPos[1] + constants.SPRITE_SIZE / constants.steps_per_square]
             default:
                 return [oldPos[0], oldPos[1]]
         }
@@ -56,10 +56,9 @@ export default function handleMovement(player) {
     }
 
     function observeObstruction(newPos, tiles) {
-        const y = newPos[1] / constants.SPRITE_SIZE
-        const x = newPos[0] / constants.SPRITE_SIZE
-        const nextTile = tiles[y][x]
-        return nextTile !== 1
+        const y = Math.floor(newPos[1] / constants.SPRITE_SIZE)
+        const x = Math.floor(newPos[0] / constants.SPRITE_SIZE)
+        return tiles[y][x] !== 1
     }
 
     function dispatchMove(direction, toPosition, walkIndex) {

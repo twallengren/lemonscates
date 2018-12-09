@@ -16,7 +16,7 @@
     background-image: url('/tiles/tree.png')
 }
 
-.chest {
+.treasureChest {
     background-color: #42b842;
     background-image: url('/tiles/chest.png')
 }
@@ -35,6 +35,14 @@
 
 .startTestMission {
     background-color: yellowgreen;
+}
+
+.startTestMissionTwo {
+    background-color: black;
+}
+
+.stopTestMissionTwo {
+    background-color: black;
 }
 
 .desertFloor {

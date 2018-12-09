@@ -37,6 +37,7 @@ export const constants = {
     s_key: 83,
     t_key: 84,
     window_size: 11,
+    steps_per_square: 2,
     BASE_URL: "http://localhost:3005",
 
 }
@@ -55,6 +56,8 @@ tileCollisionMap[textureMap.healthDrain] = collisionMap.noCollision
 tileCollisionMap[textureMap.healthSource] = collisionMap.noCollision
 tileCollisionMap[textureMap.genericBrush] = collisionMap.noCollision
 tileCollisionMap[textureMap.startTestMission] = collisionMap.noCollision
+tileCollisionMap[textureMap.startTestMissionTwo] = collisionMap.noCollision
+tileCollisionMap[textureMap.stopTestMissionTwo] = collisionMap.noCollision
 
 // map desert tile sprites to collision/no collision
 tileCollisionMap[textureMap.desertFloor] = collisionMap.noCollision
@@ -97,6 +100,8 @@ tileInteractionMap[textureMap.healthDrain] = interactionMap.healthDrain
 tileInteractionMap[textureMap.healthSource] = interactionMap.healthSource
 tileInteractionMap[textureMap.genericBrush] = interactionMap.addChoppedWood
 tileInteractionMap[textureMap.startTestMission] = interactionMap.startTestMission
+tileInteractionMap[textureMap.startTestMissionTwo] = interactionMap.startTestMissionTwo
+tileInteractionMap[textureMap.stopTestMissionTwo] = interactionMap.stopTestMissionTwo
 
 // map desert tile sprites to interaction
 tileInteractionMap[textureMap.desertFloor] = interactionMap.noInteraction
@@ -206,6 +211,8 @@ walkInteractionTextureMap[textureMap.healthDrain] = textureMap.grass
 walkInteractionTextureMap[textureMap.healthSource] = textureMap.grass
 walkInteractionTextureMap[textureMap.genericBrush] = textureMap.grass
 walkInteractionTextureMap[textureMap.startTestMission] = textureMap.grass
+walkInteractionTextureMap[textureMap.startTestMissionTwo] = textureMap.grass
+walkInteractionTextureMap[textureMap.stopTestMissionTwo] = textureMap.grass
 
 // map desert tile sprites
 walkInteractionTextureMap[textureMap.desertBrush] = textureMap.desertFloor

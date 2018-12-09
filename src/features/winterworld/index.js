@@ -17,6 +17,7 @@ import store from '../../config/store'
 
 function WinterWorld(props) {
 
+    // dispatch map to redux store
     store.dispatch({
         type: 'ADD_TILES', payload: {
             tiles,

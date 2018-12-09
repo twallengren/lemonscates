@@ -14,9 +14,8 @@ const rock = textureMap.rock
 
 const width = 100
 const height = 100
-const probArray = Array(10).fill(ground)
-    .concat(Array(3).fill(plant))
-    .concat(Array(1).fill(rock))
+const probArray = Array(29).fill(ground)
+    .concat(Array(1).fill(plant))
 
 const rockWall = Array(width + constants.window_size - 1).fill(rock)
 
@@ -40,6 +39,8 @@ for (var count = 0; count < Math.floor(constants.window_size / 2); count++) {
 }
 
 tilesStart[missions.testMissionOne.startingCoordinates[1]][missions.testMissionOne.startingCoordinates[0]] = textureMap.startTestMission
+tilesStart[missions.testMissionTwo.startingCoordinates[1]][missions.testMissionTwo.startingCoordinates[0]] = textureMap.startTestMissionTwo
+tilesStart[missions.testMissionTwo.endingCoordinates[1]][missions.testMissionTwo.endingCoordinates[1]] = textureMap.stopTestMissionTwo
 tilesStart[11][11] = textureMap.toBeach
 tilesStart[12][12] = textureMap.toDesert
 tilesStart[13][13] = textureMap.toForest

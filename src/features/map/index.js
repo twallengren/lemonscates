@@ -42,10 +42,7 @@ function MapRow(props) {
     </div>
 }
 
-function getLocalTiles(props) {
-
-    const rowInd = props.position[1] / constants.SPRITE_SIZE
-    const colInd = props.position[0] / constants.SPRITE_SIZE
+function getLocalTiles(rowInd, colInd, props) {
 
     return props.tiles
         .slice(Math.max(rowInd - Math.floor(constants.window_size / 2), 0),
@@ -58,19 +55,36 @@ function getLocalTiles(props) {
 }
 
 function Map(props) {
+
+    const rowInd = props.position[1] / constants.SPRITE_SIZE
+    const colInd = props.position[0] / constants.SPRITE_SIZE
+
+    let top = '0px'
+    let left = '0px'
+
+    if (!Number.isInteger(rowInd)) {
+        top = `${-constants.SPRITE_SIZE / constants.steps_per_square}px`
+    }
+
+
+
+    if (!Number.isInteger(colInd)) {
+        left = `${-constants.SPRITE_SIZE / constants.steps_per_square}px`
+    }
+
     return (
         <div
             style={{
                 position: 'relative',
-                top: `0px`,
-                left: `0px`,
+                top: top,
+                left: left,
                 width: `${constants.SPRITE_SIZE * constants.window_size}px`,
                 height: `${constants.SPRITE_SIZE * constants.window_size}px`,
                 border: '4px solid white',
             }}
         >
             {
-                getLocalTiles(props).map(row => <MapRow tiles={row} />)
+                getLocalTiles(Math.floor(rowInd), Math.floor(colInd), props).map(row => <MapRow tiles={row} />)
             }
         </div>
     )

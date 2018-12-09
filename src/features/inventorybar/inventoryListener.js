@@ -15,8 +15,8 @@ import { interactionMap } from '../../config/maps'
 export default function inventoryListener(InventoryBar) {
 
     function observeInteraction(pos, interactions) {
-        const rowIndex = pos[1] / constants.SPRITE_SIZE
-        const columnIndex = pos[0] / constants.SPRITE_SIZE
+        const rowIndex = Math.floor(pos[1] / constants.SPRITE_SIZE)
+        const columnIndex = Math.floor(pos[0] / constants.SPRITE_SIZE)
         return interactions[rowIndex][columnIndex]
     }
 

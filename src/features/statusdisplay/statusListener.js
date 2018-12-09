@@ -14,27 +14,37 @@ import { interactionMap } from '../../config/maps'
 
 export default function statusListener(StatusDisplay) {
 
+    // function that returns the numerical value of the interaction occuring
+    // at a given position
     function observeInteraction(pos, interactions) {
-        const rowIndex = pos[1] / constants.SPRITE_SIZE
-        const columnIndex = pos[0] / constants.SPRITE_SIZE
+        const rowIndex = Math.floor(pos[1] / constants.SPRITE_SIZE)
+        const columnIndex = Math.floor(pos[0] / constants.SPRITE_SIZE)
         return interactions[rowIndex][columnIndex]
     }
 
+    // function triggered when any key is pressed
+    // updates status attributes on redux state depending on interaction at current tile
     function attemptInteraction() {
 
+        // get necessary values from redux state
         const pos = store.getState().player.position
         const currentHealth = store.getState().status.health
         const currentWeight = store.getState().status.carryweight
         const interactions = store.getState().map.ontile
 
+        // observe the interaction defined at current tile
         switch (observeInteraction(pos, interactions)) {
 
+            // if no interaction is defined
             case interactionMap.noInteraction:
 
+                // do nothing
                 return
 
+            // current tile should increase health of player
             case interactionMap.healthSource:
 
+                // dispatch updated health to redux state
                 store.dispatch({
                     type: constants.CHANGE_HEALTH,
                     payload: {
@@ -44,8 +54,10 @@ export default function statusListener(StatusDisplay) {
 
                 return
 
+            // current tile should decrease health of player
             case interactionMap.healthDrain:
 
+                // dispatch updated health to redux state
                 store.dispatch({
                     type: constants.CHANGE_HEALTH,
                     payload: {
@@ -55,8 +67,10 @@ export default function statusListener(StatusDisplay) {
 
                 return
 
+            // player collects wood on current tile
             case interactionMap.addChoppedWood:
 
+                // dispatch updated weight to redux state
                 store.dispatch({
                     type: constants.CHANGE_WEIGHT,
                     payload: {
@@ -72,6 +86,7 @@ export default function statusListener(StatusDisplay) {
 
     }
 
+    // function that is run anytime a key is pressed
     function handleKeyDown(e) {
 
         e.preventDefault()

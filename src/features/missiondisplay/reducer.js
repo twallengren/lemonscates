@@ -4,6 +4,7 @@ const initialState = {
 
     id: null,
     startingCoordinates: null,
+    endingCoordinates: null,
     name: null,
     description: null,
     finalInteraction: null,

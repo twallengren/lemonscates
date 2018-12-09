@@ -15,8 +15,8 @@ import { interactionMap } from '../../config/maps'
 export default function infoListener(InfoDisplay) {
 
     function observeInteraction(pos, interactions) {
-        const rowIndex = pos[1] / constants.SPRITE_SIZE
-        const columnIndex = pos[0] / constants.SPRITE_SIZE
+        const rowIndex = Math.floor(pos[1] / constants.SPRITE_SIZE)
+        const columnIndex = Math.floor(pos[0] / constants.SPRITE_SIZE)
         return interactions[rowIndex][columnIndex]
     }
 
@@ -51,6 +51,36 @@ export default function infoListener(InfoDisplay) {
                 }
 
             case interactionMap.startTestMission:
+
+                if (missionID === null) {
+
+                    store.dispatch({
+                        type: constants.CHANGE_INFO,
+                        payload: {
+
+                            message: constants.S_TO_START
+
+                        }
+                    })
+
+                    return
+
+                } else {
+
+                    store.dispatch({
+                        type: constants.CHANGE_INFO,
+                        payload: {
+
+                            message: constants.S_TO_STOP
+
+                        }
+                    })
+
+                    return
+
+                }
+
+            case interactionMap.startTestMissionTwo:
 
                 if (missionID === null) {
 

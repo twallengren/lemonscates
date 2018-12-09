@@ -12,9 +12,11 @@ import store from '../../config/store'
 import { constants, cutToBackgroundMap, cutToCollisionMap, cutToInteractionMap, walkToInteractionTextureMap } from '../../config/constants'
 import { textureMap, interactionMap } from '../../config/maps'
 import history from '../../config/history'
+import _ from 'lodash'
 
 export default function mapListener(Map) {
 
+    // define which tile sprites are can be cut by pressing 'c'
     const cutablePlants = [
         textureMap.tree,
         textureMap.desertPlant,
@@ -26,6 +28,7 @@ export default function mapListener(Map) {
         textureMap.snowBrush,
     ]
 
+    // function triggered when player presses 'c'
     function cutDownTree() {
 
         const pos = store.getState().player.position
@@ -34,8 +37,8 @@ export default function mapListener(Map) {
         const collision = store.getState().map.collision
         const interaction = store.getState().map.ontile
 
-        const rowIndex = pos[1] / constants.SPRITE_SIZE
-        const columnIndex = pos[0] / constants.SPRITE_SIZE
+        const rowIndex = Math.floor(pos[1] / constants.SPRITE_SIZE)
+        const columnIndex = Math.floor(pos[0] / constants.SPRITE_SIZE)
 
         switch (direction) {
 
@@ -180,8 +183,8 @@ export default function mapListener(Map) {
         const pos = store.getState().player.position
         const interaction = store.getState().map.ontile
 
-        const rowIndex = pos[1] / constants.SPRITE_SIZE
-        const columnIndex = pos[0] / constants.SPRITE_SIZE
+        const rowIndex = Math.floor(pos[1] / constants.SPRITE_SIZE)
+        const columnIndex = Math.floor(pos[0] / constants.SPRITE_SIZE)
 
         switch (interaction[rowIndex][columnIndex]) {
 
@@ -254,8 +257,10 @@ export default function mapListener(Map) {
         const tiles = store.getState().map.tiles
         const mission = store.getState().mission
 
-        const rowIndex = pos[1] / constants.SPRITE_SIZE
-        const columnIndex = pos[0] / constants.SPRITE_SIZE
+        var rowIndex = Math.floor(pos[1] / constants.SPRITE_SIZE)
+        var columnIndex = Math.floor(pos[0] / constants.SPRITE_SIZE)
+
+        console.log(_.invert(interactionMap)[interaction[rowIndex][columnIndex]])
 
         switch (interaction[rowIndex][columnIndex]) {
 
