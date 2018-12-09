@@ -56,9 +56,9 @@ export default function handleMovement(player) {
     }
 
     function observeObstruction(newPos, tiles) {
-        const y = Math.floor(newPos[1] / constants.SPRITE_SIZE)
-        const x = Math.floor(newPos[0] / constants.SPRITE_SIZE)
-        return tiles[y][x] !== 1
+        const rowInd = Math.round(newPos[1] / constants.SPRITE_SIZE)
+        const colInd = Math.floor(newPos[0] / constants.SPRITE_SIZE)
+        return tiles[rowInd][colInd] !== 1
     }
 
     function dispatchMove(direction, toPosition, walkIndex) {

@@ -73,6 +73,7 @@ function Map(props) {
     }
 
     return (
+
         <div
             style={{
                 position: 'relative',
@@ -87,6 +88,7 @@ function Map(props) {
                 getLocalTiles(Math.floor(rowInd), Math.floor(colInd), props).map(row => <MapRow tiles={row} />)
             }
         </div>
+
     )
 }
 

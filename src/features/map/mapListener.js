@@ -37,7 +37,7 @@ export default function mapListener(Map) {
         const collision = store.getState().map.collision
         const interaction = store.getState().map.ontile
 
-        const rowIndex = Math.floor(pos[1] / constants.SPRITE_SIZE)
+        const rowIndex = Math.round(pos[1] / constants.SPRITE_SIZE)
         const columnIndex = Math.floor(pos[0] / constants.SPRITE_SIZE)
 
         switch (direction) {
@@ -183,7 +183,7 @@ export default function mapListener(Map) {
         const pos = store.getState().player.position
         const interaction = store.getState().map.ontile
 
-        const rowIndex = Math.floor(pos[1] / constants.SPRITE_SIZE)
+        const rowIndex = Math.round(pos[1] / constants.SPRITE_SIZE)
         const columnIndex = Math.floor(pos[0] / constants.SPRITE_SIZE)
 
         switch (interaction[rowIndex][columnIndex]) {
@@ -257,7 +257,7 @@ export default function mapListener(Map) {
         const tiles = store.getState().map.tiles
         const mission = store.getState().mission
 
-        var rowIndex = Math.floor(pos[1] / constants.SPRITE_SIZE)
+        var rowIndex = Math.round(pos[1] / constants.SPRITE_SIZE)
         var columnIndex = Math.floor(pos[0] / constants.SPRITE_SIZE)
 
         console.log(_.invert(interactionMap)[interaction[rowIndex][columnIndex]])
