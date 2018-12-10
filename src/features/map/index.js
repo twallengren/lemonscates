@@ -81,7 +81,6 @@ function Map(props) {
                 left: left,
                 width: `${constants.SPRITE_SIZE * constants.window_size}px`,
                 height: `${constants.SPRITE_SIZE * constants.window_size}px`,
-                border: '4px solid white',
             }}
         >
             {

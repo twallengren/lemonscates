@@ -8,4 +8,12 @@ body {
 .world {
   display: flex;
   flex-direction: column;
+  border-style: solid;
+  border-color: white;
+  border-width: 40px;
+  height: 440px;
+  width: 440px;
+  padding: -10px;
+  overflow: hidden;
+  background-color: white;
 }
