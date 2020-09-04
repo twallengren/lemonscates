@@ -49,6 +49,8 @@ export default function inventoryListener(InventoryBar) {
                     }
                 })
 
+                break
+
             default:
 
                 return

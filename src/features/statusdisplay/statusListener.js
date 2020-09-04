@@ -78,6 +78,8 @@ export default function statusListener(StatusDisplay) {
                     }
                 })
 
+                break
+
             default:
 
                 return

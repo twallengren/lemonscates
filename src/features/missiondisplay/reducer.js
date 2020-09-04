@@ -8,7 +8,6 @@ const initialState = {
     name: null,
     description: null,
     finalInteraction: null,
-    stateToTest: null,
     missionText: constants.NO_ACTIVE_MISSION,
     missionComplete: null,
 

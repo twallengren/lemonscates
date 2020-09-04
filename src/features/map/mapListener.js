@@ -12,7 +12,6 @@ import store from '../../config/store'
 import { constants, cutToBackgroundMap, cutToCollisionMap, cutToInteractionMap, walkToInteractionTextureMap } from '../../config/constants'
 import { textureMap, interactionMap } from '../../config/maps'
 import history from '../../config/history'
-import _ from 'lodash'
 
 export default function mapListener(Map) {
 

@@ -71,7 +71,6 @@ export default function missionListener(MissionDisplay) {
                             name: null,
                             description: null,
                             finalInteraction: null,
-                            stateToTest: null,
                             missionText: constants.NO_ACTIVE_MISSION,
                             missionComplete: null,
                         }
@@ -116,7 +115,6 @@ export default function missionListener(MissionDisplay) {
                             name: null,
                             description: null,
                             finalInteraction: null,
-                            stateToTest: null,
                             missionText: constants.NO_ACTIVE_MISSION,
                             missionComplete: null,
                         }
@@ -148,7 +146,6 @@ export default function missionListener(MissionDisplay) {
                             name: null,
                             description: null,
                             finalInteraction: null,
-                            stateToTest: null,
                             missionText: constants.NO_ACTIVE_MISSION,
                             missionComplete: null,
                         }
@@ -193,7 +190,6 @@ export default function missionListener(MissionDisplay) {
                             name: null,
                             description: null,
                             finalInteraction: null,
-                            stateToTest: null,
                             missionText: constants.NO_ACTIVE_MISSION,
                             missionComplete: null,
                         }

@@ -13,10 +13,6 @@ import infoListener from './infoListener'
 
 class InfoPanel extends Component {
 
-    constructor(props) {
-        super(props)
-    }
-
     render() {
 
         return (

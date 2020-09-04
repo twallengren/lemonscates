@@ -14,10 +14,6 @@ import Item from './item'
 
 class InventoryBar extends Component {
 
-    constructor(props) {
-        super(props)
-    }
-
     render() {
 
         // Define inventory to display
